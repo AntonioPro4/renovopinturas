@@ -1,0 +1,15 @@
+{
+  "name": "renovopinturas",
+  "compatibility_date": "2026-09-11",
+  "assets": {
+    "directory": "dist/client"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SESSION"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
+}

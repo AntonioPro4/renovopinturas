@@ -2,16 +2,15 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      deployments: write
 
     steps:
       - name: Checkout repository
@@ -28,15 +27,10 @@ jobs:
 
       - name: Build Astro site
         run: npm run build
-        env:
-          NODE_VERSION: '20'
 
-      - name: Deploy to Cloudflare Pages
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: cloudflare/pages-action@v1
+      - name: Deploy to Cloudflare Workers/Pages
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: renovopinturas
-          directory: dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: deploy --env production
