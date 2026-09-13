@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pintura Comercial e Predial | Renovo Pinturas - Orçamento Grátis</title>
+    <meta name="description" content="Pintura comercial e predial com equipe especializada. Edifícios, escritórios, galpões e lojas. Visita técnica gratuita. Solicite orçamento via WhatsApp.">
+    <link rel="canonical" href="https://renovopinturas.com.br/servicos/pintura-comercial">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul: #1e3a5f;
+            --azul-escuro: #0f2744;
+            --azul-claro: #2d5a8a;
+            --branco: #f8f9fa;
+            --branco-frio: #f4f6f8;
+            --cinza: #6c757d;
+            --cinza-claro: #e9ecef;
+            --ambar: #d4a853;
+            --verde: #28a745;
+            --sombra: rgba(30, 58, 95, 0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--azul-escuro); background: var(--branco); }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--cinza-claro); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo-symbol { width: 42px; height: 42px; }
+        .logo-text { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--azul); letter-spacing: -0.02em; }
+        .logo-text span { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; color: var(--cinza); margin-top: -4px; }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--azul); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--azul-claro); }
+        .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--verde); color: white; padding: 0.65rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+        .btn-wa:hover { background: #219a52; transform: translateY(-1px); }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .menu-toggle span { width: 24px; height: 2px; background: var(--azul); transition: 0.3s; }
+        .hero-servico { position: relative; min-height: 75vh; display: flex; align-items: center; padding-top: 80px; overflow: hidden; }
+        .hero-servico::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul) 100%); z-index: -2; }
+        .hero-servico::after { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); z-index: -1; }
+        .hero-servico .container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: white; margin-bottom: 1rem; text-transform: uppercase; }
+        .hero-content h1 .highlight { color: var(--ambar); position: relative; }
+        .hero-content h1 .highlight::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 4px; background: var(--ambar); transform: skewX(-12deg); }
+        .hero-content .subtitle { font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2rem; max-width: 500px; }
+        .hero-content .badges { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+        .badge { display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.5rem 1rem; border-radius: 50px; color: white; font-size: 0.85rem; font-weight: 500; }
+        .badge svg { width: 16px; height: 16px; }
+        .hero-form { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .hero-form h3 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--azul); }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--azul); margin-bottom: 0.4rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--cinza-claro); border-radius: 8px; font-family: inherit; font-size: 0.95rem; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--azul-claro); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .btn-submit { width: 100%; background: var(--verde); color: white; border: none; padding: 1rem; border-radius: 8px; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-submit:hover { background: #219a52; transform: translateY(-2px); }
+        .diferenciais { padding: 5rem 0; background: var(--branco-frio); }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header .label { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azul-claro); margin-bottom: 0.75rem; }
+        .section-header h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: var(--azul); }
+        .diferenciais-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .diferencial-card { background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px var(--sombra); transition: transform 0.3s; }
+        .diferencial-card:hover { transform: translateY(-4px); }
+        .diferencial-icon { width: 56px; height: 56px; background: var(--branco-frio); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .diferencial-icon svg { width: 28px; height: 28px; color: var(--azul); }
+        .diferencial-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--azul); }
+        .diferencial-card p { font-size: 0.9rem; color: var(--cinza); }
+        .antes-depois { padding: 5rem 0; background: var(--azul-escuro); }
+        .antes-depois .section-header .label { color: var(--ambar); }
+        .antes-depois .section-header h2 { color: white; }
+        .comparador-wrapper { position: relative; max-width: 900px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); }
+        .comparador { position: relative; aspect-ratio: 16/9; cursor: ew-resize; user-select: none; }
+        .comparador-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+        .comparador-depois { clip-path: inset(0 0 0 50%); }
+        .comparador-label { position: absolute; top: 1rem; padding: 0.5rem 1rem; background: rgba(0, 0, 0, 0.7); color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 4px; pointer-events: none; }
+        .comparador-label.antes { left: 1rem; }
+        .comparador-label.depois { right: 1rem; }
+        .comparador-slider { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: white; transform: translateX(-50%); pointer-events: none; }
+        .comparador-slider::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: white; border-radius: 50%; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
+        .comparador-slider::after { content: '⟷'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 1.2rem; color: var(--azul); pointer-events: none; }
+        .tipos-servico { padding: 5rem 0; background: white; }
+        .tipos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .tipo-card { background: var(--branco-frio); padding: 2rem; border-radius: 12px; transition: all 0.3s; border: 2px solid transparent; }
+        .tipo-card:hover { border-color: var(--azul); transform: translateY(-4px); }
+        .tipo-card h4 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--azul); }
+        .tipo-card p { font-size: 0.9rem; color: var(--cinza); margin-bottom: 1rem; }
+        .tipo-card ul { list-style: none; }
+        .tipo-card li { font-size: 0.85rem; color: var(--azul-escuro); padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .tipo-card li::before { content: '✓'; color: var(--verde); font-weight: 700; }
+        .etapas { padding: 5rem 0; background: var(--branco-frio); }
+        .etapas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .etapa-item { position: relative; text-align: center; }
+        .etapa-numero { width: 48px; height: 48px; background: var(--azul); color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .etapa-item h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--azul); }
+        .etapa-item p { font-size: 0.9rem; color: var(--cinza); }
+        .etapa-conector { position: absolute; top: 24px; right: -50%; width: 100%; height: 2px; background: var(--cinza-claro); }
+        .etapa-item:last-child .etapa-conector { display: none; }
+        .areas { padding: 5rem 0; background: var(--azul); }
+        .areas .section-header .label { color: var(--ambar); }
+        .areas .section-header h2 { color: white; }
+        .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .area-link { display: block; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.1); border-radius: 8px; text-decoration: none; color: white; font-weight: 500; text-align: center; transition: all 0.2s; border: 1px solid transparent; }
+        .area-link:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--ambar); }
+        .faq { padding: 5rem 0; background: white; }
+        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        details { background: var(--branco-frio); border-radius: 10px; overflow: hidden; }
+        summary { padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; color: var(--azul); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; color: var(--azul-claro); transition: transform 0.2s; }
+        details[open] summary::after { transform: rotate(45deg); }
+        .faq-content { padding: 0 1.5rem 1.5rem; color: var(--cinza); font-size: 0.95rem; border-top: 1px solid var(--cinza-claro); padding-top: 1rem; }
+        .cta-final { padding: 5rem 0; background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul) 100%); text-align: center; }
+        .cta-final h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); color: white; margin-bottom: 1rem; }
+        .cta-final p { color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; margin-bottom: 2rem; }
+        .cta-buttons { display: flex; justify-content: center; gap: 1rem; }
+        .btn-wa-large { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--verde); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.2s; }
+        .btn-wa-large:hover { background: #219a52; transform: translateY(-2px); }
+        footer { background: var(--azul-escuro); padding: 4rem 0 2rem; color: white; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1rem; font-size: 0.9rem; max-width: 280px; }
+        .footer-col h4 { font-size: 1rem; margin-bottom: 1.25rem; color: white; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); }
+        @media (max-width: 1024px) {
+            .hero-servico .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content .subtitle { margin: 0 auto 2rem; }
+            .hero-content .badges { justify-content: center; }
+            .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+            .tipos-grid { grid-template-columns: repeat(2, 1fr); }
+            .etapas-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+            .etapa-conector { display: none; }
+            .areas-grid { grid-template-columns: repeat(3, 1fr); }
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            .hero-servico { min-height: auto; padding: 120px 0 60px; }
+            .hero-content h1 { font-size: 2rem; }
+            .diferenciais-grid { grid-template-columns: 1fr; }
+            .tipos-grid { grid-template-columns: 1fr; }
+            .etapas-grid { grid-template-columns: 1fr; }
+            .areas-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand p { max-width: none; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <svg class="logo-symbol" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 8C4 5.79086 5.79086 4 8 4H24C26.2091 4 28 5.79086 28 8V24C28 26.2091 26.2091 28 24 28H8C5.79086 28 4 26.2091 4 24V8Z" fill="#1e3a5f"/>
+                        <path d="M4 8V24C4 26.2091 5.79086 28 8 28H14" stroke="#d4a853" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M18 16H34M34 16L28 10M34 16L28 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="logo-text">RENOVO<span>PINTURAS</span></div>
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#galeria">Galeria</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                    <a href="https://wa.me/55SEUNUMERO" class="btn-wa">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-servico">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Pintura <span class="highlight">Comercial</span></h1>
+                <p class="subtitle">Edifícios corporativos, escritórios, galpões e lojas com execução rápida e sem interromper suas operações.</p>
+                <div class="badges">
+                    <span class="badge">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Equipe Especializada
+                    </span>
+                    <span class="badge">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Execução Rápida
+                    </span>
+                    <span class="badge">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Sem Interrupção
+                    </span>
+                </div>
+            </div>
+            <div class="hero-form">
+                <h3>Solicite Orçamento Grátis</h3>
+                <form id="form-orcamento">
+                    <div class="form-group">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">WhatsApp</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de serviço</label>
+                        <select id="tipo" name="tipo">
+                            <option value="pintura-comercial">Pintura Comercial</option>
+                            <option value="pintura-predial">Pintura Predial</option>
+                            <option value="pintura-galpao">Galpão/Industrial</option>
+                            <option value="pintura-escritorio">Escritório</option>
+                            <option value="pintura-loja">Loja/Retail</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="obs">Observações (opcional)</label>
+                        <textarea id="obs" name="obs" placeholder="Metragem aproximada, número de pavimentos..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Solicitar via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="diferenciais">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Por que escolher a Renovo</span>
+                <h2>Expertise em projetos comerciais</h2>
+            </div>
+            <div class="diferenciais-grid">
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4>Execução Rápida</h4>
+                    <p>Equipes dimensionadas para entregas no prazo, sem atrasos.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4>Melhor Custo-Benefício</h4>
+                    <p>Compra institucional de tintas com economia de até 30%.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h4>Gestão de Edifício</h4>
+                    <p>Experiência com condomínios, síndicos e administradoras.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4>Garantia Escrita</h4>
+                    <p>5 anos de garantia com termo de compromisso formal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tipos-servico">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">O que fazemos</span>
+                <h2>Serviços comerciais</h2>
+            </div>
+            <div class="tipos-grid">
+                <div class="tipo-card">
+                    <h4>Edifícios Corporativos</h4>
+                    <p>Pintura de fachada e áreas comuns de prédios comerciais.</p>
+                    <ul>
+                        <li>Fachada predial</li>
+                        <li>Hall de entrada</li>
+                        <li>Corredores e escadas</li>
+                        <li>Estacionamento</li>
+                    </ul>
+                </div>
+                <div class="tipo-card">
+                    <h4>Escritórios</h4>
+                    <p>Pintura interna com execução em horário comercial ou noturno.</p>
+                    <ul>
+                        <li>Salas executivas</li>
+                        <li>Open space</li>
+                        <li>Salas de reunião</li>
+                        <li>Cozinha e banheiro</li>
+                    </ul>
+                </div>
+                <div class="tipo-card">
+                    <h4>Galpões e Indústrias</h4>
+                    <p>Pintura industrial com equipamentos e técnicas especializadas.</p>
+                    <ul>
+                        <li>Paredes e tetos</li>
+                        <li>Piso demarcado</li>
+                        <li>Áreas de carga</li>
+                        <li>Structurais metálicos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="antes-depois">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Resultado real</span>
+                <h2>Veja a transformação</h2>
+            </div>
+            <div class="comparador-wrapper">
+                <div class="comparador" id="comparador">
+                    <div class="comparador-img comparador-depois" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80')"></div>
+                    <div class="comparador-img comparador-antes" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80')"></div>
+                    <span class="comparador-label antes">Antes</span>
+                    <span class="comparador-label depois">Depois</span>
+                    <div class="comparador-slider"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="etapas">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Como funciona</span>
+                <h2>Seu projeto em 4 etapas</h2>
+            </div>
+            <div class="etapas-grid">
+                <div class="etapa-item">
+                    <div class="etapa-numero">1</div>
+                    <h4>Contato</h4>
+                    <p>Você nos chama. Entendemos a necessidade do seu negócio.</p>
+                    <div class="etapa-conector"></div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-numero">2</div>
+                    <h4>Visita Técnica</h4>
+                    <p>Avaliação do local, medição e elaboração do escopo.</p>
+                    <div class="etapa-conector"></div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-numero">3</div>
+                    <h4>Execução</h4>
+                    <p>Trabalho executado com supervisão e controle de qualidade.</p>
+                    <div class="etapa-conector"></div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-numero">4</div>
+                    <h4>Entrega</h4>
+                    <p>Ambiente limpo, organizada e garantia entregue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Atendemos na sua região</span>
+                <h2>Pintores comerciais na sua região</h2>
+            </div>
+            <div class="areas-grid">
+                <a href="/pintura/bela-vista" class="area-link">Bela Vista</a>
+                <a href="/pintura/centro" class="area-link">Centro</a>
+                <a href="/pintura/itaim-bibi" class="area-link">Itaim Bibi</a>
+                <a href="/pintura/pinheiros" class="area-link">Pinheiros</a>
+                <a href="/pintura/vila-olimpia" class="area-link">Vila Olímpia</a>
+                <a href="/pintura/moema" class="area-link">Moema</a>
+                <a href="/pintura/jardim-paulista" class="area-link">Jardim Paulista</a>
+                <a href="/pintura/paulista" class="area-link">Paulista</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Perguntas frequentes</span>
+                <h2>Tire suas dúvidas</h2>
+            </div>
+            <div class="faq-grid">
+                <details>
+                    <summary>Vocês trabalham em horário noturno?</summary>
+                    <div class="faq-content">Sim, temos equipes disponíveis para execução em horário noturno ou nos finais de semana, para não impactar o funcionamento do seu negócio.</div>
+                </details>
+                <details>
+                    <summary>Preciso preparar algo antes?</summary>
+                    <div class="faq-content">Nossa equipe faz toda a preparação. Você só precisa garantir acesso ao local e informar sobre necessidades especiais de segurança.</div>
+                </details>
+                <details>
+                    <summary>Vocêsemitem NF?</summary>
+                    <div class="faq-content">Sim, emitimos nota fiscal para todos os serviços. Trabalhamos com personas jurídicas e aceitamos diversos métodos de pagamento.</div>
+                </details>
+                <details>
+                    <summary>Qual o prazo mínimo?</summary>
+                    <div class="faq-content">O prazo varia conforme a metragem. Para um escritório de 100m², o prazo médio é de 2 a 3 dias. Apresentamos cronograma detalhado na proposta.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>Pronto para valorizar seu negócio?</h2>
+            <p>Solicite um orçamento sem compromisso. Respondemos em até 2 horas.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/55SEUNUMERO?text=Olá,%20gostaria%20de%20um%20orçamento%20de%20pintura%20comercial." class="btn-wa-large">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <svg class="logo-symbol" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 8C4 5.79086 5.79086 4 8 4H24C26.2091 4 28 5.79086 28 8V24C28 26.2091 26.2091 28 24 28H8C5.79086 28 4 26.2091 4 24V8Z" fill="#ffffff" fill-opacity="0.2"/>
+                            <path d="M4 8V24C4 26.2091 5.79086 28 8 28H14" stroke="#d4a853" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M18 16H34M34 16L28 10M34 16L28 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div class="logo-text" style="color: white;">
+                            RENOVO
+                            <span style="color: rgba(255,255,255,0.6);">PINTURAS</span>
+                        </div>
+                    </a>
+                    <p>Especialistas em pintura residencial e comercial. Transformamos ambientes com qualidade e precisão desde 2015.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="/servicos/pintura-residencial">Pintura Residencial</a></li>
+                        <li><a href="/servicos/pintura-comercial">Pintura Comercial</a></li>
+                        <li><a href="/servicos/pintura-predial">Pintura Predial</a></li>
+                        <li><a href="/servicos/texturas">Texturas</a></li>
+                        <li><a href="/servicos/pedreiro">Serviços de Pedreiro</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Regiões</h4>
+                    <ul>
+                        <li><a href="/pintura/bela-vista">Pintura Bela Vista</a></li>
+                        <li><a href="/pintura/centro">Pintura Centro</a></li>
+                        <li><a href="/pintura/jardim-america">Pintura Jardim América</a></li>
+                        <li><a href="/pintura/moema">Pintura Moema</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/55SEUNUMERO">WhatsApp</a></li>
+                        <li><a href="mailto:contato@renovopinturas.com.br">E-mail</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Renovo Pinturas. Todos os direitos reservados.</p>
+                <p>CNPJ: 00.000.000/0001-00</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://renovopinturas.com.br/servicos/pintura-comercial#organization",
+                "name": "Renovo Pinturas",
+                "image": "https://renovopinturas.com.br/logo.png",
+                "telephone": "+55SEUNUMERO",
+                "email": "contato@renovopinturas.com.br",
+                "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+                "openingHours": "Mo-Fr 08:00-18:00"
+            },
+            {
+                "@type": "Service",
+                "@id": "https://renovopinturas.com.br/servicos/pintura-comercial#service",
+                "name": "Pintura Comercial e Predial",
+                "description": "Serviço de pintura comercial e predial com execução rápida. Edifícios, escritórios, galpões e lojas.",
+                "provider": { "@type": "LocalBusiness", "name": "Renovo Pinturas" },
+                "serviceType": "PaintingService"
+            }
+        ]
+    }
+    </script>
+
+    <script>
+        const comparador = document.getElementById('comparador');
+        const slider = comparador.querySelector('.comparador-slider');
+        const depois = comparador.querySelector('.comparador-depois');
+        let isDragging = false;
+
+        function updateComparador(x) {
+            const rect = comparador.getBoundingClientRect();
+            let percentage = ((x - rect.left) / rect.width) * 100;
+            percentage = Math.max(0, Math.min(100, percentage));
+            slider.style.left = percentage + '%';
+            depois.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+        }
+
+        comparador.addEventListener('mousedown', () => isDragging = true);
+        document.addEventListener('mouseup', () => isDragging = false);
+        document.addEventListener('mousemove', (e) => { if (isDragging) updateComparador(e.clientX); });
+        comparador.addEventListener('touchstart', () => isDragging = true);
+        document.addEventListener('touchend', () => isDragging = false);
+        document.addEventListener('touchmove', (e) => { if (isDragging) updateComparador(e.touches[0].clientX); });
+        comparador.addEventListener('click', (e) => { updateComparador(e.clientX); });
+        comparador.setAttribute('tabindex', '0');
+        comparador.addEventListener('keydown', (e) => {
+            const currentPercentage = parseFloat(slider.style.left) || 50;
+            let newPercentage = currentPercentage;
+            if (e.key === 'ArrowLeft') newPercentage = Math.max(0, currentPercentage - 5);
+            if (e.key === 'ArrowRight') newPercentage = Math.min(100, currentPercentage + 5);
+            if (newPercentage !== currentPercentage) {
+                slider.style.left = newPercentage + '%';
+                depois.style.clipPath = `inset(0 0 0 ${newPercentage}%)`;
+            }
+        });
+
+        document.getElementById('form-orcamento').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const tipo = document.getElementById('tipo').value;
+            const obs = document.getElementById('obs').value;
+            const mensagem = `Olá, me chamo ${nome}. Gostaria de um orçamento de ${tipo}. Meu WhatsApp: ${telefone}. ${obs ? 'Observações: ' + obs : ''}`;
+            window.open(`https://wa.me/55SEUNUMERO?text=${encodeURIComponent(mensagem)}`, '_blank');
+        });
+
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

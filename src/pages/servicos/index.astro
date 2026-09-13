@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { company } from '../../data/company';
+
+const services = [
+  {
+    slug: 'pintura-residencial',
+    title: 'Pintura Residencial',
+    description: 'Apartamentos, casas e sobrados com acabamento profissional. Reboco, massa corrida, textura e pintura de tetos, paredes, portas e janelas.',
+    price: 'A partir de R$ 15/m²',
+    gradient: '#0E3A66',
+    gradientEnd: '#1B5FB0',
+    icon: `<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>`,
+    features: ['Reboco e massa corrida', 'Pintura de tetos e paredes', 'Textura e grafiato', 'Portas e janelas', 'Rebaixamento em gesso'],
+  },
+  {
+    slug: 'pintura-comercial',
+    title: 'Pintura Comercial',
+    description: 'Escritórios, lojas, galpões e prédios comerciais. Trabalho com cronograma flexível para não atrapalhar o funcionamento do seu negócio.',
+    price: 'A partir de R$ 18/m²',
+    gradient: '#F57C00',
+    gradientEnd: '#E65100',
+    icon: `<rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>`,
+    features: ['Cronograma flexível', 'Trabalho pós-horário', 'Galpões e estoques', 'Fachadas comerciais', 'Áreas comuns'],
+  },
+  {
+    slug: 'impermeabilizacao',
+    title: 'Impermeabilização',
+    description: 'Proteção contra infiltrações em lajes, telhados, paredes e áreas molhadas. Solução duradoura que evita problemas futuros.',
+    price: 'A partir de R$ 35/m²',
+    gradient: '#00695C',
+    gradientEnd: '#00897B',
+    icon: `<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>`,
+    features: ['Lajes e telhados', 'Paredes e muros', 'Áreas molhadas', 'Caixas d\'água', 'Rufos e calhas'],
+  },
+  {
+    slug: 'reforma-pedreiro',
+    title: 'Serviços de Pedreiro',
+    description: 'Reboco, alvenaria, contrapiso, Alicerces, ampliação e reparos estruturais. Mão de obra qualificada para obras de todos os portes.',
+    price: 'Sob orçamento',
+    gradient: '#37474F',
+    gradientEnd: '#546E7A',
+    icon: `<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>`,
+    features: ['Reboco completo', 'Contrapiso', 'Alicerces', 'Alvenaria', 'Reparos estruturais'],
+  },
+];
+
+const faqs = [
+  { q: 'Qual o prazo de entrega?', a: 'O prazo varia de acordo com o tamanho do projeto. Para apartamentos pequenos, cerca de 3 a 5 dias. Casas completas podem levar de 7 a 15 dias. Siempre informamos o prazo no orçamento.' },
+  { q: 'Vocês fornecem os materiais?', a: 'Sim! Fornecemos todos os materiais necessários (tintas, massa, reboco, etc.) com qualidade garantida. O orçamento é fechado, sem surpresas.' },
+  { q: 'Como funciona a garantia?', a: 'Oferecemos garantia de 5 anos para todos os serviços, cobrindo mão de obra e materiales. Qualquer problema dentro do período, resolvemos sem custo adicional.' },
+  { q: 'Atendem em horários específicos?', a: 'Trabalhamos de segunda a sábado, das 8h às 18h. Para projetos comerciais, podemos combinar horários alternativos para não afetar o funcionamento do negócio.' },
+  { q: 'Fazem orçamento sem compromisso?', a: 'Sim! O orçamento é sempre gratuito e sem compromisso. Nossa equipe vai até o local para avaliar, tirar medidas e apresentar a proposta detalhada.' },
+];
+---
+
+<BaseLayout
+  title="Serviços de Pintura e Reforma em São Paulo | Renovo Pinturas"
+  description="Conheça todos os serviços de pintura residencial, comercial, impermeabilização e pedreiro. Orçamento gratuito e garantia de 5 anos. Atendemos São Paulo e região."
+  canonical="/servicos"
+  breadcrumbItems={[
+    { name: 'Serviços', href: '/servicos' },
+  ]}
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #0E3A66 0%, #1B5FB0 100%);">
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#grid)"/>
+      </svg>
+    </div>
+    <div class="container py-16 md:py-20 relative">
+      <div class="max-w-3xl">
+        <h1 class="text-white font-extrabold text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
+          Serviços de Pintura e Reforma
+        </h1>
+        <p class="text-white/80 text-base md:text-lg mb-8 max-w-2xl leading-relaxed">
+          Soluções completas em pintura residencial, comercial, impermeabilização e serviços de pedreiro. Orçamento gratuito e garantia de 5 anos.
+        </p>
+        <a
+          href={`${company.whatsappUrl}?text=Olá! Gostaria de um orçamento para serviços de pintura.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl text-center transition-all hover:scale-105 inline-flex items-center gap-3"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Solicitar Orçamento Grátis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map((service) => (
+          <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div class="p-8" style={`border-bottom: 1px solid ${service.gradient}20;`}>
+              <div class="flex items-start gap-5">
+                <div
+                  class="w-14 h-14 rounded-xl flex-shrink-0 flex items-center justify-center"
+                  style={`background: linear-gradient(135deg, ${service.gradient}, ${service.gradientEnd});`}
+                >
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true" set:html={service.icon} />
+                </div>
+                <div class="flex-1">
+                  <h2 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h2>
+                  <p class="text-gray-500 text-sm leading-relaxed mb-4">{service.description}</p>
+                  <div class="font-bold text-lg mb-4" style={`color: ${service.gradient};`}>{service.price}</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-8 pt-6">
+              <h3 class="font-semibold text-sm text-gray-700 mb-3">Inclui:</h3>
+              <ul class="space-y-2">
+                {service.features.map((f) => (
+                  <li class="flex items-center gap-2 text-sm text-gray-600">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flex-shrink-0" style={`color: ${service.gradient};`} aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`${company.whatsappUrl}?text=Olá! Gostaria de um orçamento para ${service.title.toLowerCase()}.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-xl text-white transition-all hover:scale-105 text-sm"
+                style={`background: linear-gradient(135deg, ${service.gradient}, ${service.gradientEnd});`}
+              >
+                Solicitar Orçamento
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+            Perguntas Frequentes
+          </h2>
+        </div>
+        <div class="space-y-3">
+          {faqs.map((faq) => (
+            <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer p-5 font-semibold text-gray-900 hover:bg-gray-100 transition-colors list-none">
+                <span class="pr-4">{faq.q}</span>
+                <svg class="w-5 h-5 flex-shrink-0 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </summary>
+              <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

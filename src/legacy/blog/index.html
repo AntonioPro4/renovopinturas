@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Renovo Pinturas - Dicas sobre Pintura, Reformas e Decoração</title>
+    <meta name="description" content="Blog da Renovo Pinturas: dicas experts sobre pintura residencial, reformas, impermeabilização e como cuidar do seu imóvel. Conteúdo feito por especialistas em SEO.">
+    <meta name="author" content="Antonio Santos">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://renovopinturas.com.br/blog/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #12202E;
+            --navy: #0E3A66;
+            --blue: #1B5FB0;
+            --blue-br: #2E86E6;
+            --blue-wash: #E7EFF8;
+            --paper: #F4F6F9;
+            --white: #fff;
+            --wa: #25D366;
+            --line: #E1E6EE;
+            --muted: #5A6678;
+            --disp: "Barlow Condensed", "Arial Narrow", sans-serif;
+            --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0 }
+        html { scroll-behavior: smooth }
+        body { font-family: var(--sans); color: var(--ink); background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased }
+        .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px }
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px }
+        a { color: var(--blue); text-decoration: none }
+        a:hover { text-decoration: underline }
+        h1, h2, h3, h4 { font-family: var(--disp); font-weight: 800; line-height: 1.1; letter-spacing: -.005em; color: var(--navy) }
+        h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 16px }
+        h2 { font-size: clamp(24px, 3vw, 32px); margin: 40px 0 16px }
+        h3 { font-size: clamp(20px, 2.5vw, 24px); margin: 32px 0 12px }
+
+        /* Header */
+        header { position: sticky; top: 0; z-index: 60; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line) }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 16px }
+        .logo { display: inline-flex; align-items: center; gap: 11px; text-decoration: none }
+        .logo svg { width: 36px; height: 36px }
+        .logo-text { font-family: var(--disp); text-transform: uppercase; line-height: .9 }
+        .logo-text b { display: block; font-weight: 800; font-size: 20px; color: var(--navy) }
+        .logo-text span { display: block; font-weight: 600; font-size: 9px; letter-spacing: .4em; color: var(--blue); margin-top: 2px }
+        .nav-blog { display: flex; gap: 24px; align-items: center }
+        .nav-blog a { font-weight: 500; font-size: 15px; color: var(--ink); text-decoration: none }
+        .nav-blog a:hover { color: var(--blue); text-decoration: none }
+        .btn-wa { display: inline-flex; align-items: center; gap: 8px; background: var(--wa); color: #04240f; padding: 10px 18px; border-radius: 6px; font-weight: 700; font-size: 14px; text-decoration: none }
+        .btn-wa:hover { background: #20c15d; text-decoration: none }
+        @media(max-width: 768px) { .nav-blog { display: none } }
+
+        /* Blog Header */
+        .blog-header { background: var(--paper); padding: 60px 0 40px; text-align: center }
+        .blog-header h1 { font-size: clamp(36px, 6vw, 56px); margin-bottom: 16px }
+        .blog-header p { font-size: 18px; color: var(--muted); max-width: 60ch; margin: 0 auto }
+        .breadcrumb { padding: 16px 0; font-size: 14px; color: var(--muted) }
+        .breadcrumb a { color: var(--blue); text-decoration: none }
+        .breadcrumb span { margin: 0 8px }
+
+        /* Article Grid */
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0 60px }
+        .article-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; transition: transform .2s, box-shadow .2s }
+        .article-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.1) }
+        .article-card img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 0 }
+        .article-card .content { padding: 20px }
+        .article-card .category { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--blue); margin-bottom: 8px }
+        .article-card h3 { font-size: 20px; margin: 0 0 10px; line-height: 1.2 }
+        .article-card .excerpt { font-size: 14px; color: var(--muted); margin-bottom: 12px }
+        .article-card .meta { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px }
+        .article-card .meta img { width: 24px; height: 24px; border-radius: 50%; display: inline-block }
+        @media(max-width: 900px) { .articles-grid { grid-template-columns: repeat(2, 1fr) } }
+        @media(max-width: 600px) { .articles-grid { grid-template-columns: 1fr } }
+
+        /* Categories */
+        .categories { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px }
+        .cat-link { padding: 8px 20px; border: 1px solid var(--line); border-radius: 50px; font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; transition: all .2s }
+        .cat-link:hover, .cat-link.active { background: var(--navy); color: var(--white); border-color: var(--navy); text-decoration: none }
+
+        /* Search */
+        .search-box { max-width: 500px; margin: 0 auto 40px; position: relative }
+        .search-box input { width: 100%; padding: 16px 20px; padding-left: 48px; font-size: 16px; border: 2px solid var(--line); border-radius: 50px; font-family: var(--sans); transition: border-color .2s, box-shadow .2s }
+        .search-box input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-wash) }
+        .search-box .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none }
+        .search-results { margin-top: 12px; font-size: 14px; color: var(--muted); text-align: center; display: none }
+        .search-results.visible { display: block }
+
+        /* Footer */
+        footer { background: var(--ink); color: #9FB0C4; padding: 40px 0 20px; font-size: 14px; text-align: center }
+        footer a { color: #9FB0C4; text-decoration: none }
+        footer a:hover { color: var(--white) }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="header-inner">
+                <a class="logo" href="/">
+                    <svg viewBox="0 0 48 48"><rect x="3" y="3" width="42" height="42" rx="11" fill="#0E3A66"/><path d="M3 40 L40 3 H34 L3 34 Z M3 34 L26 3 H20 L3 20 Z" fill="#2E86E6"/><circle cx="35.5" cy="12.5" r="2.4" fill="#fff"/></svg>
+                    <span class="logo-text"><b>Renovo</b><span>Pinturas</span></span>
+                </a>
+                <nav class="nav-blog">
+                    <a href="/">Início</a>
+                    <a href="/servicos">Serviços</a>
+                    <a href="/blog">Blog</a>
+                    <a href="#regioes">Regiões</a>
+                </nav>
+                <a class="btn-wa" href="https://wa.me/5511914044916?text=Olá! Quero um orçamento." target="_blank">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.3 5.3 4.6 2 .8 2.7.9 3.7.8.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+                    Orçamento
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-header">
+        <div class="wrap">
+            <h1>Blog Renovo Pinturas</h1>
+            <p>Dicas experts sobre pintura, reformas e como valorizar seu imóvel. Conteúdo feito por quem entende do assunto.</p>
+
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input type="search" id="blogSearch" placeholder="Buscar artigos..." aria-label="Buscar artigos">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wrap">
+        <div class="categories">
+            <a href="/blog" class="cat-link active">Todos</a>
+            <a href="/blog/categoria/pintura" class="cat-link">Pintura</a>
+            <a href="/blog/categoria/reformas" class="cat-link">Reformas</a>
+            <a href="/blog/categoria/impermeabilizacao" class="cat-link">Impermeabilização</a>
+            <a href="/blog/categoria/dicas" class="cat-link">Dicas</a>
+        </div>
+
+        <div class="articles-grid">
+            <article class="article-card">
+                <a href="/blog/como-escolher-tinta-certa">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Tintas coloridas em lata" loading="lazy">
+                </a>
+                <div class="content">
+                    <div class="category">Pintura</div>
+                    <h3><a href="/blog/como-escolher-tinta-certa">Como escolher a tinta certa para cada ambiente</a></h3>
+                    <p class="excerpt">Descubra qual tipo de tinta é ideal para sala, quarto, cozinha e banheiro. Guia completo com comparativo.</p>
+                    <div class="meta">
+                        <img src="https://ui-avatars.com/api/?name=Antonio+Santos&background=0E3A66&color=fff&size=32" alt="Antonio Santos">
+                        <span>Antonio Santos</span> · <span>5 min de leitura</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <a href="/blog/pintura-antes-depois">
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600&q=80" alt="Ambiente pintado" loading="lazy">
+                </a>
+                <div class="content">
+                    <div class="category">Dicas</div>
+                    <h3><a href="/blog/pintura-antes-depois">Pintura antes e depois: transformando ambientes simples</a></h3>
+                    <p class="excerpt">Veja exemplos de transformação e aprenda como escolher cores que valorizam seu espaço.</p>
+                    <div class="meta">
+                        <img src="https://ui-avatars.com/api/?name=Antonio+Santos&background=0E3A66&color=fff&size=32" alt="Antonio Santos">
+                        <span>Antonio Santos</span> · <span>4 min de leitura</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <a href="/blog/impermeabilizacao-previne-infiltrações">
+                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80" alt="Parede com infiltração" loading="lazy">
+                </a>
+                <div class="content">
+                    <div class="category">Impermeabilização</div>
+                    <h3><a href="/blog/impermeabilizacao-previne-infiltrações">Como impermeabilização previne infiltrações e mofo</a></h3>
+                    <p class="excerpt">Aprenda a identificar sinais de infiltração e descubra as melhores soluções para proteger sua casa.</p>
+                    <div class="meta">
+                        <img src="https://ui-avatars.com/api/?name=Antonio+Santos&background=0E3A66&color=fff&size=32" alt="Antonio Santos">
+                        <span>Antonio Santos</span> · <span>6 min de leitura</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <a href="/blog/preparacao-parede-para-pintura">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Preparação de parede" loading="lazy">
+                </a>
+                <div class="content">
+                    <div class="category">Reformas</div>
+                    <h3><a href="/blog/preparacao-parede-para-pintura">Preparação de parede: o segredo para um acabamento perfeito</a></h3>
+                    <p class="excerpt">Passo a passo completo para preparar suas paredes antes de pintar e garantir resultado profissional.</p>
+                    <div class="meta">
+                        <img src="https://ui-avatars.com/api/?name=Antonio+Santos&background=0E3A66&color=fff&size=32" alt="Antonio Santos">
+                        <span>Antonio Santos</span> · <span>7 min de leitura</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <a href="/blog/cores-2026-tendencia">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Interior moderno com cores тенденции" loading="lazy">
+                </a>
+                <div class="content">
+                    <div class="category">Tendências</div>
+                    <h3><a href="/blog/cores-2026-tendencia">Cores tendências 2026: inspire-se para sua próxima pintura</a></h3>
+                    <p class="excerpt">Descubra as cores que estão em alta e como aplicá-las na decoração do seu lar.</p>
+                    <div class="meta">
+                        <img src="https://ui-avatars.com/api/?name=Antonio+Santos&background=0E3A66&color=fff&size=32" alt="Antonio Santos">
+                        <span>Antonio Santos</span> · <span>4 min de leitura</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <a href="/blog/manutencao-pintura-residencial">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Escritório pintado" loading="lazy">
+                </a>
+                <div class="content">
+                    <div class="category">Dicas</div>
+                    <h3><a href="/blog/manutencao-pintura-residencial">Como manter a pintura da sua casa bonita por mais tempo</a></h3>
+                    <p class="excerpt">Dicas práticas de manutenção para prolongar a vida útil da pintura e evitar gastos desnecessários.</p>
+                    <div class="meta">
+                        <img src="https://ui-avatars.com/api/?name=Antonio+Santos&background=0E3A66&color=fff&size=32" alt="Antonio Santos">
+                        <span>Antonio Santos</span> · <span>5 min de leitura</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrap">
+            <div class="footer-links">
+                <a href="/">Início</a>
+                <a href="/servicos">Serviços</a>
+                <a href="/blog">Blog</a>
+                <a href="https://wa.me/5511914044916">Contato</a>
+            </div>
+            <p>© 2026 Renovo Pinturas. CNPJ 59.247.765/0001-73</p>
+        </div>
+    </footer>
+
+    <script>
+        // Blog Search
+        const articles = [
+            { title: 'Como escolher a tinta certa para cada ambiente', url: '/blog/como-escolher-tinta-certa', category: 'Pintura', excerpt: 'Descubra qual tipo de tinta é ideal para cada cômodo' },
+            { title: 'Como impermeabilização previne infiltrações e mofo', url: '/blog/impermeabilizacao-previne-infiltracoes', category: 'Impermeabilização', excerpt: 'Aprenda a identificar sinais de infiltração' },
+            { title: 'Preparação de parede: o segredo para um acabamento perfeito', url: '/blog/preparacao-parede-para-pintura', category: 'Reformas', excerpt: 'Passo a passo para preparar paredes antes de pintar' },
+            { title: 'Cores tendências 2026', url: '/blog/cores-2026-tendencia', category: 'Tendências', excerpt: 'Descubra as cores que estão em alta' },
+            { title: 'Pintura antes e depois: transformando ambientes', url: '/blog/pintura-antes-depois', category: 'Dicas', excerpt: 'Veja exemplos de transformação' },
+            { title: 'Manutenção da pintura residencial', url: '/blog/manutencao-pintura-residencial', category: 'Dicas', excerpt: 'Dicas para prolongar a vida útil' }
+        ];
+
+        const searchInput = document.getElementById('blogSearch');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            if (query.length < 2) {
+                searchResults.classList.remove('visible');
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            const results = articles.filter(a =>
+                a.title.toLowerCase().includes(query) ||
+                a.excerpt.toLowerCase().includes(query) ||
+                a.category.toLowerCase().includes(query)
+            );
+
+            if (results.length > 0) {
+                searchResults.innerHTML = results.map(r =>
+                    `<a href="${r.url}" style="display:block;padding:8px 0;border-bottom:1px solid var(--line);color:var(--ink)">${r.title}</a>`
+                ).join('');
+            } else {
+                searchResults.innerHTML = '<p>Nenhum resultado encontrado</p>';
+            }
+            searchResults.classList.add('visible');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

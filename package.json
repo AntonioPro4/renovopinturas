@@ -1,0 +1,17 @@
+{
+  "name": "renovopinturas",
+  "version": "1.0.0",
+  "description": "Site da Renovo Pinturas - Pintura residencial, comercial e serviços de pedreiro em São Paulo.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.3.1",
+    "astro": "^7.3.2",
+    "sharp": "^0.35.4"
+  }
+}

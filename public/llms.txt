@@ -1,0 +1,158 @@
+# Renovo Pinturas - Site Completo
+
+## Visão Geral
+A Renovo Pinturas é uma empresa de pintura residencial, comercial e serviços de pedreiro localizada em São Paulo, SP. Atendemos toda a cidade de São Paulo e região metropolitana com serviços de pintura, impermeabilização, texturas e reformas.
+
+## Dados da Empresa
+- **Nome**: Renovo Pinturas
+- **CNPJ**: 59.247.765/0001-73
+- **WhatsApp**: (11) 91404-4916
+- **Email**: contato@renovopinturas.com.br
+- **Site**: https://renovopinturas.com.br
+- **Autor do Blog**: Antonio Santos (Especialista em SEO, Fundador da Meedfy)
+- **LinkedIn**: https://www.linkedin.com/in/antonio-souza-seo/
+
+## Serviços Oferecidos
+
+### 1. Pintura Residencial
+Pintura completa de casas e apartamentos com preparo de superfície, proteção de móveis e acabamento fino. Inclui:
+- Pintura de paredes e tetos
+- Reparo de trincas e imperfeições
+- Aplicação de massa corrida
+- Pintura de portas e janelas
+- Decoração com cores personalizadas
+
+### 2. Pintura Comercial e Predial
+Serviços para empresas, escritórios, lojas e condomínios:
+- Pintura de fachadas
+- Pintura de áreas comuns
+- Pintura de escritórios
+- Pintura de lojas e salas comerciais
+- Manutenção predial
+
+### 3. Serviços de Pedreiro
+Reformas e reparos estruturais:
+- Alvenaria e reboco
+- Contrapiso
+- Drywall e forro
+- Reparos estruturais
+- Small reformas em geral
+
+### 4. Texturas e Efeitos
+Acabamentos decorativos:
+- Grafiato
+- Textura massa
+- Massa corrida
+- Efeitos decorativos
+- Verniz e stains
+
+### 5. Impermeabilização
+Proteção contra umidade e infiltrações:
+- Impermeabilização de paredes
+- Impermeabilização de lajes
+- Tratamento de trincas
+- Aplicação de manta asfáltica
+- Imunização antimofo
+
+## Áreas de Atendimento
+
+Atendemos todas as regiões da cidade de São Paulo:
+- Zona Sul
+- Zona Oeste
+- Zona Leste
+- Zona Norte
+- Centro
+- Moema
+- Pinheiros
+- Vila Madalena
+- E toda a região metropolitana
+
+## Blog - Artigos Publicados
+
+### Artigo: Como escolher a tinta certa para cada ambiente
+- **URL**: https://renovopinturas.com.br/blog/como-escolher-tinta-certa
+- **Categoria**: Pintura
+- **Resumo**: Guia completo sobre tipos de tinta (acrílica, látex PVA, esmalte epóxi), quando usar cada uma, acabamentos (fosco, acetinado, semibrilho), e recomendações por ambiente (sala, quarto, cozinha, banheiro).
+
+### Artigo: Como impermeabilização previne infiltrações e mofo
+- **URL**: https://renovopinturas.com.br/blog/impermeabilizacao-previne-infiltracoes
+- **Categoria**: Impermeabilização
+- **Resumo**: Explicação sobre causas de infiltração, tipos de impermeabilização (rígida, flexível, líquida), sinais de problemas e quando contratar profissional.
+
+## Conteúdo SEO por Cidade
+
+Oferecemos páginas otimizadas para as principais cidades da região metropolitana de São Paulo:
+- Pintura residencial em São Paulo
+- Pintura residencial em Guarulhos
+- Pintura residencial em São Bernardo do Campo
+- Pintura residencial em Santo André
+- Pintura residencial em Osasco
+- Pintura residencial em Diadema
+- Pintura residencial em Mauá
+- Pintura residencial em Carapicuíba
+- Pintura residencial em Barueri
+- Pintura residencial em Cotia
+- E muitas outras cidades...
+
+## Diferenciais da Empresa
+
+1. **Visita técnica gratuita**: Orçamento sem compromisso
+2. **Equipe própria**: Profissionais experientes, sem terceirização
+3. **Obra limpa**: Proteção de móveis e limpeza total na entrega
+4. **Garantia**: 5 anos de garantia no serviço de pintura
+5. **Qualidade**: Materiais de primeira linha
+6. **Prazo cumprido**: Cronograma detalhado e respeitado
+
+## Informações Técnicas
+
+### FAQ - Perguntas Frequentes
+
+**Quanto custa um serviço de pintura?**
+O valor depende da área total, estado das superfícies e tipo de tinta. Visita técnica gratuita para orçamento detalhado.
+
+**A visita técnica é gratuita?**
+Sim, completamente gratuita e sem compromisso.
+
+**Quanto tempo leva uma pintura residencial?**
+Para apartamento de 2 quartos: 3 a 5 dias úteis em média.
+
+**O serviço tem garantia?**
+Sim, 5 anos de garantia escrita com acompanhamento pós-obra.
+
+**Vocês atendem minha região?**
+Atendemos toda São Paulo e região metropolitana.
+
+## Estrutura do Site
+
+```
+/
+├── index.html (Home)
+├── blog/
+│   └── index.html (Blog)
+├── servicos/
+│   ├── pintura-residencial/
+│   ├── pintura-comercial/
+│   ├── pedreiro/
+│   ├── texturas/
+│   └── impermeabilizacao/
+├── pintura/
+│   ├── sao-paulo/
+│   ├── zona-sul/
+│   ├── zona-oeste/
+│   └── [cidades]/
+└── sitemap.xml
+```
+
+## Autor do Conteúdo
+
+**Antonio Santos**
+- Especialista em SEO e Marketing Digital
+- Fundador da Meedfy (consultoria de SEO)
+- LinkedIn: https://www.linkedin.com/in/antonio-souza-seo/
+- Contato: antonio@meedfy.com.br
+
+---
+
+Última atualização: Janeiro 2026
+Formato: Markdown
+Licença: Todo o conteúdo é propriedade da Renovo Pinturas

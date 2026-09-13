@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { cities, getNearbyCities } from '../data/cities';
+import { company } from '../data/company';
+
+const heroCity = cities[0]; // São Paulo
+const featuredCities = cities.slice(0, 8);
+const allCities = cities.slice(1); // all except São Paulo
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: company.name,
+  description: 'Especialistas em pintura residencial, comercial e impermeabilização em São Paulo e região. Orçamento gratuito e garantia de 5 anos.',
+  url: company.site,
+  telephone: `+55 ${company.whatsapp}`,
+  email: company.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: company.addressLocality,
+    addressRegion: company.addressRegion,
+    addressCountry: company.addressCountry,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: company.latitude,
+    longitude: company.longitude,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '08:00',
+    closes: '20:00',
+  },
+  priceRange: company.priceRange,
+  areaServed: {
+    '@type': 'State',
+    name: 'São Paulo',
+  },
+  sameAs: [
+    'https://www.instagram.com/renovopinturas',
+    'https://www.facebook.com/renovopinturas',
+  ],
+};
+---
+
+<BaseLayout
+  title="Pintura Residencial, Comercial e Impermeabilização em São Paulo"
+  description="Especialistas em pintura residencial e comercial em São Paulo e região. Orçamento gratuito, garantia de 5 anos. Atendemos mais de 35 cidades na Grande SP."
+  canonical="/"
+  breadcrumbItems={[]}
+  schema={schema}
+>
+  <!-- Hero -->
+  <section
+    class="relative overflow-hidden"
+    style={`background: linear-gradient(135deg, #0E3A66 0%, #1B5FB0 100%);`}
+  >
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#grid)"/>
+      </svg>
+    </div>
+
+    <div class="container py-16 md:py-24 relative">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/10 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+          Orçamento Gratuito — Garantia de 5 Anos
+        </span>
+        <h1 class="text-white font-extrabold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
+          Pintura Residencial e Comercial<br class="hidden md:block" />
+          em São Paulo e Região
+        </h1>
+        <p class="text-white/80 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed">
+          Há mais de 10 anos entregando pinturas de alta qualidade com profissionais experientes. Atendemos mais de 35 cidades na Grande São Paulo com orçamento gratuito.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href={`${company.whatsappUrl}?text=Olá! Gostaria de um orçamento gratuito para pintura.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl text-center transition-all hover:scale-105 flex items-center justify-center gap-3 text-lg"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Solicitar Orçamento Grátis
+          </a>
+          <a
+            href="/servicos"
+            class="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl text-center transition-all flex items-center justify-center gap-2"
+          >
+            Ver Serviços
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="container py-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-2xl font-extrabold text-[#0E3A66]">+500</div>
+          <div class="text-sm text-gray-500 mt-1">Clientes Atendidos</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-[#0E3A66]">+10</div>
+          <div class="text-sm text-gray-500 mt-1">Anos de Experiência</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-[#0E3A66]">35+</div>
+          <div class="text-sm text-gray-500 mt-1">Cidades Atendidas</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-[#0E3A66]">5</div>
+          <div class="text-sm text-gray-500 mt-1">Anos de Garantia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+          Nossos Serviços
+        </h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">
+          Oferecemos soluções completas em pintura e recuperação predial, sempre com materiais de primeira qualidade e profissionais experientes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Residencial -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #0E3A66, #1B5FB0);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Pintura Residencial</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Apartamentos, casas e sobrados. Preparação de superfície, reboco, massa corrida e pintura com acabamento profissional.
+          </p>
+          <div class="text-[#0E3A66] font-semibold text-sm mb-4">A partir de R$ 15/m²</div>
+          <a
+            href="/pintura-residencial"
+            class="text-sm font-semibold text-[#0E3A66] hover:text-[#1B5FB0] transition-colors flex items-center gap-1"
+          >
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Comercial -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#F57C00] to-[#E65100]">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Pintura Comercial</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Escritórios, lojas, galpões e prédios comerciais. Trabalho com cronograma flexível para não atrapalhar seu negócio.
+          </p>
+          <div class="text-[#F57C00] font-semibold text-sm mb-4">A partir de R$ 18/m²</div>
+          <a
+            href="/servicos/pintura-comercial"
+            class="text-sm font-semibold text-[#F57C00] hover:text-[#E65100] transition-colors flex items-center gap-1"
+          >
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Impermeabilização -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br from-[#00695C] to-[#00897B]">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Impermeabilização</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">
+            Proteção contra infiltrações em lajes, paredes, telhados e áreas molhadas. Solução duradoura com garantia estendida.
+          </p>
+          <div class="text-[#00695C] font-semibold text-sm mb-4">A partir de R$ 35/m²</div>
+          <a
+            href="/servicos/impermeabilizacao"
+            class="text-sm font-semibold text-[#00695C] hover:text-[#00897B] transition-colors flex items-center gap-1"
+          >
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Cities -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+          Cidades que Atendemos
+        </h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">
+          Atendemos toda a Grande São Paulo, ABCD, Zona Norte, Oeste, Sul e Leste com equipes especializadas em cada região.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {featuredCities.map((city) => (
+          <a
+            href={`/pintura-residencial-${city.slug}`}
+            class="group p-4 rounded-xl border border-gray-200 hover:border-[#0E3A66] hover:shadow-md transition-all bg-gray-50 hover:bg-white"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center text-white font-bold text-sm"
+                style={`background: linear-gradient(135deg, ${city.gradient}, ${city.gradientEnd});`}
+              >
+                {city.name.charAt(0)}
+              </div>
+              <div>
+                <div class="font-semibold text-sm text-gray-900 group-hover:text-[#0E3A66] transition-colors">
+                  {city.name}
+                </div>
+                <div class="text-xs text-gray-400">{city.region}</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-8">
+        <a
+          href="/pintura-residencial"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-[#0E3A66] hover:text-[#1B5FB0] transition-colors"
+        >
+          Ver todas as 35 cidades
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background: linear-gradient(135deg, #0E3A66 0%, #1B5FB0 100%);">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">
+          O que Nossos Clientes Dizem
+        </h2>
+        <p class="text-white/70 max-w-2xl mx-auto">
+          Veja as avaliações de clientes que já confiaram no nosso trabalho.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {heroCity.testimonials.map((t) => (
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+            <div class="flex gap-1 mb-3">
+              {[1, 2, 3, 4, 5].map(() => (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#F57C00" class="flex-shrink-0" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              ))}
+            </div>
+            <p class="text-white/90 text-sm leading-relaxed mb-4">"{t.text}"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-sm">
+                {t.name.charAt(0)}
+              </div>
+              <div>
+                <div class="text-white font-semibold text-sm">{t.name}</div>
+                <div class="text-white/50 text-xs">{t.neighborhood}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 text-center max-w-4xl mx-auto border border-gray-100">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+          Solicite seu Orçamento Gratuito
+        </h2>
+        <p class="text-gray-500 max-w-2xl mx-auto mb-8">
+          Entre em contato pelo WhatsApp e receba um orçamento personalizado sem compromisso. Resposta rápida e preço justo.
+        </p>
+        <a
+          href={`${company.whatsappUrl}?text=Olá! Gostaria de um orçamento gratuito para pintura.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-[#0E3A66] hover:bg-[#1B5FB0] text-white font-semibold px-10 py-4 rounded-xl text-lg transition-all hover:scale-105"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Conversar pelo WhatsApp
+        </a>
+        <p class="text-gray-400 text-xs mt-4">
+          Ligação também: {(company.whatsapp).replace(/(\d{2})(\d{2})(\d{4,5})(\d{4})/, '($1) $2 $3-$4')}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

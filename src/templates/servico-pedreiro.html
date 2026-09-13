@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços de Pedreiro | Renovo Pinturas - Reforma e Construção</title>
+    <meta name="description" content="Serviços de pedreiro para sua reforma ou construção. Alvenaria, reboco, contrapiso, drywall e mais. Equipe qualificada. Solicite orçamento via WhatsApp.">
+    <link rel="canonical" href="https://renovopinturas.com.br/servicos/pedreiro">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul: #1e3a5f;
+            --azul-escuro: #0f2744;
+            --azul-claro: #2d5a8a;
+            --branco: #f8f9fa;
+            --branco-frio: #f4f6f8;
+            --cinza: #6c757d;
+            --cinza-claro: #e9ecef;
+            --ambar: #d4a853;
+            --verde: #28a745;
+            --sombra: rgba(30, 58, 95, 0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--azul-escuro); background: var(--branco); }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--cinza-claro); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo-symbol { width: 42px; height: 42px; }
+        .logo-text { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--azul); letter-spacing: -0.02em; }
+        .logo-text span { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; color: var(--cinza); margin-top: -4px; }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--azul); font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--azul-claro); }
+        .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--verde); color: white; padding: 0.65rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+        .btn-wa:hover { background: #219a52; transform: translateY(-1px); }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .menu-toggle span { width: 24px; height: 2px; background: var(--azul); transition: 0.3s; }
+        .hero-servico { position: relative; min-height: 75vh; display: flex; align-items: center; padding-top: 80px; overflow: hidden; }
+        .hero-servico::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul) 100%); z-index: -2; }
+        .hero-servico::after { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>'); z-index: -1; }
+        .hero-servico .container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center; }
+        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: white; margin-bottom: 1rem; text-transform: uppercase; }
+        .hero-content h1 .highlight { color: var(--ambar); position: relative; }
+        .hero-content h1 .highlight::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 4px; background: var(--ambar); transform: skewX(-12deg); }
+        .hero-content .subtitle { font-size: 1.15rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2rem; max-width: 500px; }
+        .hero-content .badges { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+        .badge { display: flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); padding: 0.5rem 1rem; border-radius: 50px; color: white; font-size: 0.85rem; font-weight: 500; }
+        .badge svg { width: 16px; height: 16px; }
+        .hero-form { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .hero-form h3 { font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--azul); }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--azul); margin-bottom: 0.4rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--cinza-claro); border-radius: 8px; font-family: inherit; font-size: 0.95rem; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--azul-claro); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .btn-submit { width: 100%; background: var(--verde); color: white; border: none; padding: 1rem; border-radius: 8px; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-submit:hover { background: #219a52; transform: translateY(-2px); }
+        .diferenciais { padding: 5rem 0; background: var(--branco-frio); }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header .label { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--azul-claro); margin-bottom: 0.75rem; }
+        .section-header h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: var(--azul); }
+        .diferenciais-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .diferencial-card { background: white; padding: 2rem; border-radius: 12px; text-align: center; box-shadow: 0 4px 20px var(--sombra); transition: transform 0.3s; }
+        .diferencial-card:hover { transform: translateY(-4px); }
+        .diferencial-icon { width: 56px; height: 56px; background: var(--branco-frio); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .diferencial-icon svg { width: 28px; height: 28px; color: var(--azul); }
+        .diferencial-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--azul); }
+        .diferencial-card p { font-size: 0.9rem; color: var(--cinza); }
+        .servicos { padding: 5rem 0; background: white; }
+        .servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .servico-card { background: var(--branco-frio); padding: 2rem; border-radius: 12px; transition: all 0.3s; border: 2px solid transparent; }
+        .servico-card:hover { border-color: var(--azul); transform: translateY(-4px); }
+        .servico-card h4 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--azul); }
+        .servico-card p { font-size: 0.9rem; color: var(--cinza); margin-bottom: 1rem; }
+        .servico-card ul { list-style: none; }
+        .servico-card li { font-size: 0.85rem; color: var(--azul-escuro); padding: 0.35rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .servico-card li::before { content: '✓'; color: var(--verde); font-weight: 700; }
+        .projetos { padding: 5rem 0; background: var(--azul-escuro); }
+        .projetos .section-header .label { color: var(--ambar); }
+        .projetos .section-header h2 { color: white; }
+        .projetos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .projeto-card { border-radius: 12px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
+        .projeto-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .projeto-card:hover img { transform: scale(1.05); }
+        .projeto-card .projeto-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
+        .projeto-card h4 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .projeto-card p { font-size: 0.85rem; opacity: 0.8; }
+        .etapas { padding: 5rem 0; background: var(--branco-frio); }
+        .etapas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .etapa-item { position: relative; text-align: center; }
+        .etapa-numero { width: 48px; height: 48px; background: var(--azul); color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.25rem; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .etapa-item h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--azul); }
+        .etapa-item p { font-size: 0.9rem; color: var(--cinza); }
+        .etapa-conector { position: absolute; top: 24px; right: -50%; width: 100%; height: 2px; background: var(--cinza-claro); }
+        .etapa-item:last-child .etapa-conector { display: none; }
+        .areas { padding: 5rem 0; background: var(--azul); }
+        .areas .section-header .label { color: var(--ambar); }
+        .areas .section-header h2 { color: white; }
+        .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .area-link { display: block; padding: 1rem 1.25rem; background: rgba(255, 255, 255, 0.1); border-radius: 8px; text-decoration: none; color: white; font-weight: 500; text-align: center; transition: all 0.2s; border: 1px solid transparent; }
+        .area-link:hover { background: rgba(255, 255, 255, 0.2); border-color: var(--ambar); }
+        .faq { padding: 5rem 0; background: white; }
+        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        details { background: var(--branco-frio); border-radius: 10px; overflow: hidden; }
+        summary { padding: 1.25rem 1.5rem; cursor: pointer; font-weight: 600; color: var(--azul); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 1.5rem; font-weight: 400; color: var(--azul-claro); transition: transform 0.2s; }
+        details[open] summary::after { transform: rotate(45deg); }
+        .faq-content { padding: 0 1.5rem 1.5rem; color: var(--cinza); font-size: 0.95rem; border-top: 1px solid var(--cinza-claro); padding-top: 1rem; }
+        .cta-final { padding: 5rem 0; background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul) 100%); text-align: center; }
+        .cta-final h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); color: white; margin-bottom: 1rem; }
+        .cta-final p { color: rgba(255, 255, 255, 0.85); font-size: 1.1rem; margin-bottom: 2rem; }
+        .cta-buttons { display: flex; justify-content: center; gap: 1rem; }
+        .btn-wa-large { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--verde); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.2s; }
+        .btn-wa-large:hover { background: #219a52; transform: translateY(-2px); }
+        footer { background: var(--azul-escuro); padding: 4rem 0 2rem; color: white; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand p { color: rgba(255, 255, 255, 0.7); margin-top: 1rem; font-size: 0.9rem; max-width: 280px; }
+        .footer-col h4 { font-size: 1rem; margin-bottom: 1.25rem; color: white; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-col a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); }
+        @media (max-width: 1024px) {
+            .hero-servico .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content .subtitle { margin: 0 auto 2rem; }
+            .hero-content .badges { justify-content: center; }
+            .diferenciais-grid { grid-template-columns: repeat(2, 1fr); }
+            .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+            .projetos-grid { grid-template-columns: repeat(2, 1fr); }
+            .etapas-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1rem; }
+            .etapa-conector { display: none; }
+            .areas-grid { grid-template-columns: repeat(3, 1fr); }
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: flex; }
+            .hero-servico { min-height: auto; padding: 120px 0 60px; }
+            .hero-content h1 { font-size: 2rem; }
+            .diferenciais-grid { grid-template-columns: 1fr; }
+            .servicos-grid { grid-template-columns: 1fr; }
+            .projetos-grid { grid-template-columns: 1fr; }
+            .etapas-grid { grid-template-columns: 1fr; }
+            .areas-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand p { max-width: none; }
+            .footer-bottom { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <svg class="logo-symbol" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 8C4 5.79086 5.79086 4 8 4H24C26.2091 4 28 5.79086 28 8V24C28 26.2091 26.2091 28 24 28H8C5.79086 28 4 26.2091 4 24V8Z" fill="#1e3a5f"/>
+                        <path d="M4 8V24C4 26.2091 5.79086 28 8 28H14" stroke="#d4a853" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M18 16H34M34 16L28 10M34 16L28 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="logo-text">RENOVO<span>PINTURAS</span></div>
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                    <a href="https://wa.me/55SEUNUMERO" class="btn-wa">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-servico">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Serviços de <span class="highlight">Pedreiro</span></h1>
+                <p class="subtitle">Reformas, construções e pequenos reparos com qualidade e profissionalismo. Alvenaria, reboco, contrapiso e muito mais.</p>
+                <div class="badges">
+                    <span class="badge">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Equipe Qualificada
+                    </span>
+                    <span class="badge">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Pontualidade
+                    </span>
+                    <span class="badge">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Material Próprio
+                    </span>
+                </div>
+            </div>
+            <div class="hero-form">
+                <h3>Solicite Orçamento Grátis</h3>
+                <form id="form-orcamento">
+                    <div class="form-group">
+                        <label for="nome">Seu nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Como podemos te chamar?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">WhatsApp</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de serviço</label>
+                        <select id="tipo" name="tipo">
+                            <option value="reforma">Reforma Geral</option>
+                            <option value="alvenaria">Alvenaria</option>
+                            <option value="reboco">Reboco/Emboço</option>
+                            <option value="contrapiso">Contrapiso</option>
+                            <option value="drywall">Drywall/Gesso</option>
+                            <option value="reparos">Reparos Gerais</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="obs">Descreva o serviço</label>
+                        <textarea id="obs" name="obs" placeholder="Descreva brevemente o que precisa..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Solicitar via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="diferenciais">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Por que escolher a Renovo</span>
+                <h2> expertise em alvenaria e reformas</h2>
+            </div>
+            <div class="diferenciais-grid">
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4>Profissionais Experientes</h4>
+                    <p>Pedreiros com anos de experiência em obras residenciais e comerciais.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                    </div>
+                    <h4>Orçamento Detalhado</h4>
+                    <p>Sem surpresa. Custos claros com descrição completa dos serviços.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4>Prazo Cumprido</h4>
+                    <p>Cronograma respeitado. Se atrasar, você não paga a diária.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    </div>
+                    <h4>Acabamento Premium</h4>
+                    <p>Atenção aos detalhes para um resultado impecável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="servicos">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">O que fazemos</span>
+                <h2>Serviços de pedreiro</h2>
+            </div>
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <h4>Alvenaria</h4>
+                    <p>Construção de paredes, muros e estruturas.</p>
+                    <ul>
+                        <li>Levantamento de paredes</li>
+                        <li>Construção de muros</li>
+                        <li>Alvenaria estrutural</li>
+                        <li>Alvenaria de vedação</li>
+                    </ul>
+                </div>
+                <div class="servico-card">
+                    <h4>Reboco e Emboço</h4>
+                    <p>Preparação de paredes para pintura.</p>
+                    <ul>
+                        <li>Reboco interno</li>
+                        <li>Reboco externo</li>
+                        <li>Emboço</li>
+                        <li>Massa única</li>
+                    </ul>
+                </div>
+                <div class="servico-card">
+                    <h4>Contrapiso</h4>
+                    <p>Base nivelada para piso.</p>
+                    <ul>
+                        <li>Contrapiso interno</li>
+                        <li>Contrapiso externo</li>
+                        <li>Nivelamento</li>
+                        <li>Impermeabilização</li>
+                    </ul>
+                </div>
+                <div class="servico-card">
+                    <h4>Drywall</h4>
+                    <p>Divisórias e forros em gesso.</p>
+                    <ul>
+                        <li>Divisórias</li>
+                        <li>Forro de gesso</li>
+                        <li>Reparos</li>
+                        <li>Instalação</li>
+                    </ul>
+                </div>
+                <div class="servico-card">
+                    <h4>Reformas Gerais</h4>
+                    <p>Transformação completa de ambientes.</p>
+                    <ul>
+                        <li>Remoção de paredes</li>
+                        <li>Alteração de layout</li>
+                        <li>Ampliações</li>
+                        <li>Reparos estruturais</li>
+                    </ul>
+                </div>
+                <div class="servico-card">
+                    <h4>Reparos Rápidos</h4>
+                    <p>Manutenção e pequenos serviços.</p>
+                    <ul>
+                        <li>Troca de piso</li>
+                        <li>Reparo de infiltração</li>
+                        <li>Reassentamento</li>
+                        <li>Pequenos consertos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projetos">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Projetos realizados</span>
+                <h2>Nosso portfólio</h2>
+            </div>
+            <div class="projetos-grid">
+                <div class="projeto-card">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Reforma residencial">
+                    <div class="projeto-info">
+                        <h4>Reforma Residencial</h4>
+                        <p>São Paulo - SP</p>
+                    </div>
+                </div>
+                <div class="projeto-card">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80" alt="Construção comercial">
+                    <div class="projeto-info">
+                        <h4>Construção Comercial</h4>
+                        <p>Moema - SP</p>
+                    </div>
+                </div>
+                <div class="projeto-card">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600&q=80" alt="Drywall">
+                    <div class="projeto-info">
+                        <h4>Drywall e Forro</h4>
+                        <p>Pinheiros - SP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="etapas">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Como funciona</span>
+                <h2>Seu projeto em 4 etapas</h2>
+            </div>
+            <div class="etapas-grid">
+                <div class="etapa-item">
+                    <div class="etapa-numero">1</div>
+                    <h4>Contato</h4>
+                    <p>Você nos chama. Entendemos sua necessidade.</p>
+                    <div class="etapa-conector"></div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-numero">2</div>
+                    <h4>Visita Técnica</h4>
+                    <p>Avaliação do local e elaboração do orçamento.</p>
+                    <div class="etapa-conector"></div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-numero">3</div>
+                    <h4>Execução</h4>
+                    <p>Trabalho executado com supervisão constante.</p>
+                    <div class="etapa-conector"></div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-numero">4</div>
+                    <h4>Entrega</h4>
+                    <p>Ambiente limpo e serviço garantizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="areas">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Atendemos na sua região</span>
+                <h2>Serviços de pedreiro na sua região</h2>
+            </div>
+            <div class="areas-grid">
+                <a href="/pedreiro/bela-vista" class="area-link">Bela Vista</a>
+                <a href="/pedreiro/centro" class="area-link">Centro</a>
+                <a href="/pedreiro/moema" class="area-link">Moema</a>
+                <a href="/pedreiro/itaim-bibi" class="area-link">Itaim Bibi</a>
+                <a href="/pedreiro/pinheiros" class="area-link">Pinheiros</a>
+                <a href="/pedreiro/vila-olimpia" class="area-link">Vila Olímpia</a>
+                <a href="/pedreiro/jardim-america" class="area-link">Jardim América</a>
+                <a href="/pedreiro/jardim-paulista" class="area-link">Jardim Paulista</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Perguntas frequentes</span>
+                <h2>Tire suas dúvidas</h2>
+            </div>
+            <div class="faq-grid">
+                <details>
+                    <summary>Vocês fazem pequenos reparos?</summary>
+                    <div class="faq-content">Sim, fazemos desde pequenos consertos até reformas completas. Entre em contato e descreva sua necessidade.</div>
+                </details>
+                <details>
+                    <summary>Qual o prazo de execução?</summary>
+                    <div class="faq-content">O prazo varia conforme o serviço. Apresentamos cronograma detalhado na proposta, com datas de início e entrega.</div>
+                </details>
+                <details>
+                    <summary>Vocês fornecem material?</summary>
+                    <div class="faq-content">Sim, podemos fornecer todos os materiais. O orçamento pode ser com material incluído ou mão de obra exclusiva.</div>
+                </details>
+                <details>
+                    <summary>Preciso preparar algo antes?</summary>
+                    <div class="faq-content">Nossa equipe chega com todas as ferramentas. Você só precisa garantir acesso ao local e definir o projeto.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="container">
+            <h2>Pronto para sua reforma?</h2>
+            <p>Solicite um orçamento sem compromisso. Respondemos em até 2 horas.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/55SEUNUMERO?text=Olá,%20gostaria%20de%20um%20orçamento%20de%20serviço%20de%20pedreiro." class="btn-wa-large">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <svg class="logo-symbol" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 8C4 5.79086 5.79086 4 8 4H24C26.2091 4 28 5.79086 28 8V24C28 26.2091 26.2091 28 24 28H8C5.79086 28 4 26.2091 4 24V8Z" fill="#ffffff" fill-opacity="0.2"/>
+                            <path d="M4 8V24C4 26.2091 5.79086 28 8 28H14" stroke="#d4a853" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M18 16H34M34 16L28 10M34 16L28 22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <div class="logo-text" style="color: white;">
+                            RENOVO
+                            <span style="color: rgba(255,255,255,0.6);">PINTURAS</span>
+                        </div>
+                    </a>
+                    <p>Especialistas em pintura e serviços de construção civil. Transformamos ambientes com qualidade e precisão desde 2015.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="/servicos/pintura-residencial">Pintura Residencial</a></li>
+                        <li><a href="/servicos/pintura-comercial">Pintura Comercial</a></li>
+                        <li><a href="/servicos/pintura-predial">Pintura Predial</a></li>
+                        <li><a href="/servicos/texturas">Texturas</a></li>
+                        <li><a href="/servicos/pedreiro">Serviços de Pedreiro</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Regiões</h4>
+                    <ul>
+                        <li><a href="/pedreiro/bela-vista">Pedreiro Bela Vista</a></li>
+                        <li><a href="/pedreiro/centro">Pedreiro Centro</a></li>
+                        <li><a href="/pedreiro/moema">Pedreiro Moema</a></li>
+                        <li><a href="/pedreiro/pinheiros">Pedreiro Pinheiros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/55SEUNUMERO">WhatsApp</a></li>
+                        <li><a href="mailto:contato@renovopinturas.com.br">E-mail</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Renovo Pinturas. Todos os direitos reservados.</p>
+                <p>CNPJ: 00.000.000/0001-00</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://renovopinturas.com.br/servicos/pedreiro#organization",
+                "name": "Renovo Pinturas",
+                "image": "https://renovopinturas.com.br/logo.png",
+                "telephone": "+55SEUNUMERO",
+                "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }
+            },
+            {
+                "@type": "Service",
+                "@id": "https://renovopinturas.com.br/servicos/pedreiro#service",
+                "name": "Serviços de Pedreiro",
+                "description": "Serviços de pedreiro para reformas e construções. Alvenaria, reboco, contrapiso, drywall e reparos.",
+                "provider": { "@type": "LocalBusiness", "name": "Renovo Pinturas" },
+                "serviceType": "ConstructionService"
+            }
+        ]
+    }
+    </script>
+
+    <script>
+        document.getElementById('form-orcamento').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const tipo = document.getElementById('tipo').value;
+            const obs = document.getElementById('obs').value;
+            const mensagem = `Olá, me chamo ${nome}. Gostaria de um orçamento de ${tipo}. Meu WhatsApp: ${telefone}. ${obs ? 'Descrição: ' + obs : ''}`;
+            window.open(`https://wa.me/55SEUNUMERO?text=${encodeURIComponent(mensagem)}`, '_blank');
+        });
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
