@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* Custom theme variables */
+@theme {
+  --color-primary: #0E3A66;
+  --color-primary-light: #1B5FB0;
+  --color-secondary: #F57C00;
+  --color-secondary-dark: #E65100;
+  --color-teal: #00695C;
+  --color-teal-light: #00897B;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20BA5C;
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+}
+
+/* Base resets and typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--color-gray-800);
+  background: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Container */
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section spacing */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Additional utilities not covered by Tailwind defaults */
+.text-white\/10 { color: rgba(255, 255, 255, 0.1); }
+.text-white\/20 { color: rgba(255, 255, 255, 0.2); }
+.text-white\/50 { color: rgba(255, 255, 255, 0.5); }
+.text-white\/60 { color: rgba(255, 255, 255, 0.6); }
+.text-white\/70 { color: rgba(255, 255, 255, 0.7); }
+.text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+.text-white\/90 { color: rgba(255, 255, 255, 0.9); }
+.text-white\/100 { color: rgba(255, 255, 255, 1); }
+.bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
+.bg-white\/20 { background-color: rgba(255, 255, 255, 0.2); }
+.border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+.hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1); }
+.hover\:bg-white\/20:hover { background-color: rgba(255, 255, 255, 0.2); }
+.text-gray-400 { color: var(--color-gray-400); }
+.text-gray-500 { color: var(--color-gray-500); }
+.hover\:text-gray-700:hover { color: var(--color-gray-700); }
+
+/* Custom gradient backgrounds */
+.bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
+
+/* Text color utilities used across components */
+.text-\[\#0E3A66\] { color: #0E3A66; }
+.text-\[\#1B5FB0\] { color: #1B5FB0; }
+.text-\[\#F57C00\] { color: #F57C00; }
+.text-\[\#E65100\] { color: #E65100; }
+.text-\[\#00695C\] { color: #00695C; }
+.text-\[\#00897B\] { color: #00897B; }
+.text-\[\#25D366\] { color: #25D366; }
+
+/* Background utilities */
+.bg-\[\#0E3A66\] { background-color: #0E3A66; }
+.bg-\[\#1B5FB0\] { background-color: #1B5FB0; }
+.bg-\[\#25D366\] { background-color: #25D366; }
+.hover\:bg-\[\#1B5FB0\]:hover { background-color: #1B5FB0; }
+.hover\:bg-\[\#20BA5C\]:hover { background-color: #20BA5C; }
+
+/* Border utilities */
+.border-\[\#0E3A66\] { border-color: #0E3A66; }
+
+/* Ring utilities */
+.focus\:ring-2:focus { box-shadow: 0 0 0 2px var(--tw-ring-color, rgba(14, 58, 102, 0.5)); }
+.ring-offset-2 { --tw-ring-offset-width: 2px; }
+.focus\:ring-\[\#0E3A66\]:focus { --tw-ring-color: #0E3A66; }
+
+/* Max widths */
+.max-w-md { max-width: 28rem; }
+
+/* Custom transitions for hover scale */
+.hover\:scale-105:hover { transform: scale(1.05); }
+
+/* Backdrop blur */
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+
+/* Aspect ratio */
+.aspect-video { aspect-ratio: 16 / 9; }
