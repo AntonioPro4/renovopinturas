@@ -112,7 +112,7 @@ const faqs = [
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true" set:html={service.icon} />
                 </div>
                 <div class="flex-1">
-                  <h2 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h2>
+                  <h2 id={service.slug} class="text-xl font-bold text-gray-900 mb-2">{service.title}</h2>
                   <p class="text-gray-500 text-sm leading-relaxed mb-4">{service.description}</p>
                   <div class="font-bold text-lg mb-4" style={`color: ${service.gradient};`}>{service.price}</div>
                 </div>
