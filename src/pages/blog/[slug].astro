@@ -1,0 +1,276 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { company } from '../../data/company';
+
+export function getStaticPaths() {
+  const posts = [
+    {
+      slug: 'cores-para-pintura-residencial',
+      title: 'Cores tendências para pintura residencial em 2024',
+      excerpt: 'Descubra as cores que estão em alta para pintar sua casa este ano. Tons neutros, verdes naturais e azuis profundos dominam as tendências.',
+      date: '15 Jan 2024',
+      image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80',
+      readTime: '5 min',
+      author: company.author,
+      content: `
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed">As cores têm o poder de transformar completamente um ambiente, influenciando diretamente o nosso humor e bem-estar. Em 2024, as tendências de pintura residencial apontam para uma paleta mais equilibrada, com tons que conectam os moradores à natureza e promovem sensações de calma e sofisticação.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">1. Tons neutros e terrosos</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Os tons neutros continuam em alta, especialmente aqueles com fundo quente como bege, areia e nude. Essas cores funcionam como uma base versátil que combina com qualquer estilo de decoração e nunca sai de moda. Para paredes internas, investir em tons como off-white, marfim e cinza quente cria uma atmosfera acolhedora e atemporal.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">2. Verdes naturais</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">O verde segue como uma das grandes apostas para 2024, especialmente em tonalidades que remetem à natureza, como verde sage, verde oliva e verde musgo. Essas cores trazem tranquilidade e conexão com o ambiente externo, sendo perfeitas para salas de estar, home offices e quartos. Para harmonizar, combine com móveis em madeira natural e tecidos em tons claros.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">3. Azuis profundos</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">O azul profundo, especialmente em tonalidades como azul-marinho e azul-petróleo, é a escolha ideal para quem deseja criar pontos focais de impacto. Funciona muito bem em paredes de destaque, cabeceiras de cama ou escritórios. Para equilibrar a intensidade, use iluminação adequada e elementos decorativos em dourado ou cobre.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">4. Cores quentes e acolhedoras</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Tons terrosos quentes como terracota, cobre e âmbar estão em ascensão. Essas cores criam ambientes acolhedores e convidativos, sendo ideais para salas de jantar, varandas e espaços de convívio. Aposte em paredes inteiras nessas tonalidades ou use-as em apenas uma parede para criar contraste.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">5. Branco atemporal</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">O branco continua sendo uma escolha certeira e atemporal. Em 2024, a tendência é optar por brancos com leve fundo amarelado ou azulado, evitando o branco puro que pode parecer frio e impessoal. O branco funciona como tela para qualquer estilo de decoração e ajuda a ampliar visualmente os ambientes.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Como escolher a cor certa</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Na hora de escolher a cor, considere o tamanho do ambiente, a iluminação natural disponível e o seu estilo de vida. Ambientes pequenos se beneficiam de cores claras, enquanto espaços grandes podem receber cores intensas sem pesar. Sempre teste a tinta em uma pequena área antes de pintar a parede inteira, observando como a cor se comporta em diferentes horários do dia sob iluminação natural e artificial.</p>
+
+      <p class="text-gray-700 mb-4 leading-relaxed">Se você está planejando repintar sua casa e precisa de ajuda profissional, conte com a Renovo Pinturas. Nossa equipe oferece orçamento gratuito e trabalha com as melhores marcas de tinta do mercado para garantir acabamento impecável e durabilidade.</p>
+    `,
+    },
+    {
+      slug: 'como-escolher-tinta-certa',
+      title: 'Como escolher a tinta certa para cada ambiente',
+      excerpt: 'Nem toda tinta serve para todo ambiente. Aprenda a escolher o tipo ideal de tinta para paredes internas, externas, tetos e áreas molhadas.',
+      date: '28 Jan 2024',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80',
+      readTime: '4 min',
+      author: company.author,
+      content: `
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed">Escolher a tinta certa é fundamental para garantir um acabamento bonito, duradouro e adequado a cada tipo de ambiente. Cada espaço da casa tem características próprias de umidade, iluminação e tráfego, exigindo tipos específicos de tinta para um resultado satisfatório.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Tipos de tinta e suas aplicações</h2>
+
+      <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Tinta acrílica (latex)</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">A tinta acrílica é a mais utilizada para pintura interna por oferecer bom acabamento, secagem rápida, baixo odor e fácil limpeza. É indicada para paredes e tetos de salas, quartos e corredores. Pode ser diluída em água e está disponível em diferentes acabamentos: fosco, acetinado e semi-brilho.</p>
+
+      <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Tinta esmalte sintético</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">O esmalte sintético é recomendado para superfícies de madeira e metal, como portas, janelas, rodapés e corrimãos. Tem alta durabilidade e resistência a lavagens, sendo ideal para acabamentos que precisam suportar atrito constante.</p>
+
+      <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Tinta epóxi</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">A tinta epóxi é a mais resistente disponível no mercado, sendo obrigatória em áreas que exigem alta durabilidade e fácil higienização, como cozinhas, banheiros, lavanderias e áreas de serviço. É aplicada geralmente em duas demãos sobre primer específico e tem excelente aderência.</p>
+
+      <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Áreas molhadas: atenção especial</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">Banheiros, cozinhas e lavanderias precisam de tintas com propriedades antimofo e resistência à umidade. A tinta epóxi é a melhor opção para essas áreas, mas existem também tintas acrílicas específicas para ambientes úmidos que contêm fungicidas na composição. Para lajes e telhados, a tinta impermeabilizante é indispensável para evitar infiltrações.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Acabamentos: qual escolher?</h2>
+
+      <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Fosco</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">O acabamento fosco disfarça imperfeições da parede e é uma escolha popular para tetos e paredes internas. Não reflete luz, criando ambientes mais aconchegantes e sofisticados. Porém, pode ser mais difícil de limpar.</p>
+
+      <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Acetinado</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">O acetinado é o meio-termo ideal entre fosco e brilhante. Tem brilho discreto, é fácil de limpar e funciona bem na maioria dos cômodos. É uma das escolhas mais versáteis e seguras para pintura residencial.</p>
+
+      <h3 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Brilhante e semi-brilho</h3>
+      <p class="text-gray-700 mb-4 leading-relaxed">Acabamentos brilhantes refletem muita luz e destacam as imperfeições da parede, mas são os mais fáceis de limpar. São indicados para áreas molhadas, portas, rodapés e móveis. Em paredes, use com moderação e em superfícies bem preparadas.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Dicas práticas</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Antes de comprar a tinta, calcule a área total a ser pintada considerando o rendimento médio indicado pelo fabricante na embalagem. Compre sempre 10% a mais do que o calculado para cobrir possíveis erros e retoques futuros. Invista também em massa corrida para nivelar a superfície e primer adequado para melhor acabamento e economia de tinta.</p>
+
+      <p class="text-gray-700 mb-4 leading-relaxed">A escolha correta da tinta faz toda a diferença no resultado final. Se você não tem experiência com pintura ou está com dúvidas sobre o melhor tipo para cada ambiente, não hesite em buscar orientação profissional. A Renovo Pinturas oferece consultoria gratuita e trabalha com tintas de primeira linha para entregar resultados duradouros.</p>
+    `,
+    },
+    {
+      slug: 'sinais-hora-repintar-casa',
+      title: '5 sinais de que é hora de repintar sua casa',
+      excerpt: 'Descascados, fissuras, desbotamento... Conheça os principais sinais de que suas paredes precisam de uma nova camada de pintura.',
+      date: '10 Fev 2024',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+      readTime: '3 min',
+      author: company.author,
+      content: `
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed">A pintura da casa não dura para sempre. Mesmo com materiais de primeira linha e aplicação profissional, sinais de desgaste aparecem com o tempo e indicam que chegou a hora de repintar. Identificar esses sinais precocemente ajuda a evitar problemas maiores e mantém seu lar bonito e protegido.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Sinal 1: Descascamento da tinta</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Quando a tinta começa a descascar, geralmente é sinal de que houve umidade na parede, má preparação da superfície antes da pintura ou uso de tinta de baixa qualidade. O descascamento expõe a parede a agentes externos e pode evoluir rapidamente se não for tratado. Antes de repintar, é essencial identificar e resolver a causa raiz da umidade.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Sinal 2: Fissuras e rachaduras</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Trincas na pintura podem ser superficiais ou indicar problemas estruturais mais sérios. Fissuras finas e contínuas geralmente são resultado da dilatação natural da parede, enquanto rachaduras maiores e irregulares podem sinalizar movimentação estrutural. Em ambos os casos, a repintura deve vir acompanhada de preparação adequada da superfície.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Sinal 3: Desbotamento</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">A ação constante da luz solar, especialmente em paredes externas e ambientes muito iluminados, causa desbotamento gradual da tinta. Cores intensas como vermelho, amarelo e azul tendem a desbotar mais rápido. Quando o desbotamento se torna visível e compromete a estética do ambiente, é hora de repintar com tintas de maior resistência aos raios UV.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Sinal 4: Manchas de mofo e bolor</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Manchas escuras em tetos e paredes de ambientes úmidos como banheiros, cozinhas e lavanderias indicam presença de mofo. Além do problema estético, o mofo traz riscos à saúde, causando alergias e problemas respiratórios. A repintura deve vir acompanhada de tratamento antifúngico e solução da umidade excessiva no ambiente.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Sinal 5: Acabamento grosseiro</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Se a parede está marcada por riscos, manchas de difícil remoção e não responde bem à limpeza, provavelmente é hora de repintar. A pintura cumpre também função protetora, e uma superfície desgastada fica mais vulnerável a novas manchas e danos estruturais.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Quando é hora de agir</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">A recomendação geral é repintar a casa a cada 5 a 7 anos para áreas internas e a cada 3 a 5 anos para fachadas externas. No entanto, se você identificar qualquer um dos sinais acima, não espere o prazo ideal. Repintar preventivamente é mais econômico do que aguardar o agravamento dos problemas.</p>
+
+      <p class="text-gray-700 mb-4 leading-relaxed">A repintura é uma excelente oportunidade para renovar os ambientes, atualizar as cores e até valorizar o imóvel. A Renovo Pinturas oferece orçamento gratuito e trabalha com profissionais experientes para entregar um acabamento impecável. Entre em contato e transforme sua casa.</p>
+    `,
+    },
+    {
+      slug: 'diferenca-pintura-interna-externa',
+      title: 'Pintura interna vs externa: conheça as diferenças',
+      excerpt: 'Você sabia que existem tintas específicas para áreas internas e externas? Entenda as diferenças e evite problemas futuros na sua obra.',
+      date: '22 Fev 2024',
+      image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80',
+      readTime: '6 min',
+      author: company.author,
+      content: `
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed">Muita gente pensa que tinta é tudo igual e que basta escolher uma cor bonita para resolver o problema. Mas a escolha do tipo certo de tinta faz toda a diferença na durabilidade, no acabamento e na proteção das superfícies. Entenda as principais diferenças entre tinta interna e externa e por que usá-las corretamente.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Composição diferente para necessidades diferentes</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Tintas externas são formuladas para resistir a condições climáticas adversas: chuva, sol intenso, variações de temperatura, vento e poluição. Sua composição inclui aditivos especiais que aumentam a durabilidade, a flexibilidade (para acompanhar dilatação da parede) e a resistência aos raios UV. Tintas internas, por sua vez, priorizam baixo odor, facilidade de aplicação e acabamento estético, já que não precisam enfrentar as mesmas intempéries.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Resistência à água e umidade</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Tintas externas precisam ser hidrorrepelentes para suportar chuvas e evitar infiltrações. Muitas são classificadas como impermeáveis e formam uma película protetora sobre a superfície. Tintas internas comuns não têm essa propriedade e, se aplicadas externamente, descascam rapidamente ao primeiro temporal. Para áreas internas úmidas como banheiros, existem formulações específicas antimofo.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Proteção contra os raios UV</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">O sol é um dos maiores inimigos da pintura externa. A radiação UV causa desbotamento, ressecamento e perda de aderência da tinta. Por isso, tintas para fachada e áreas externas contêm pigmentos e aditivos especiais que refletem ou absorvem os raios UV, mantendo a cor e a integridade da película por mais tempo. Tintas internas não têm essa proteção.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Acabamento e textura</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Tintas internas geralmente têm acabamentos mais refinados (foscos, acetinados, semi-brilho) para priorizar a estética dos ambientes. Tintas externas costumam ter acabamento mais rugoso e texturizado, pensado para disfarçar imperfeições das fachadas e aumentar a resistência. Existem várias opções de textura para atender a diferentes gostos e estilos arquitetônicos.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Durabilidade e vida útil</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Enquanto uma tinta interna bem aplicada pode manter sua aparência por 5 a 10 anos em condições normais, tintas externas precisam ser mais resilientes. As melhores tintas para fachada têm vida útil de 5 a 7 anos antes de precisar de repintura, dependendo das condições climáticas da região. Em São Paulo, por exemplo, a combinação de chuva, poluição e calor intenso exige produtos de alta performance.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Posso usar tinta interna em área externa?</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">A resposta curta é: não. Usar tinta interna em área externa é uma economia que sai cara. O resultado será descascamento precoce, desbotamento rápido e possíveis infiltrações. Mesmo que a tinta tenha sido recém-aplicada e pareça estar em bom estado, em poucos meses ela começará a apresentar problemas. Use sempre a tinta correta para cada finalidade.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">E a tinta externa em ambiente interno?</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Também não é recomendado. Tintas externas contêm solventes e aditivos que liberam odores fortes por mais tempo, podendo causar desconforto e até problemas de saúde em ambientes fechados. A ventilação para aplicação em áreas internas deve ser maior e o tempo de secagem e cura também é mais longo.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Como escolher a tinta certa</h2>
+      <p class="text-gray-700 mb-4 leading-relaxed">Na hora de comprar tinta, verifique sempre o rótulo e a indicação de uso do fabricante. Pinturas para fachadas, muros externos e áreas externas em geral devem receber tintas específicas para essa finalidade. Para áreas internas, escolha entre as opções para quarto, sala, cozinha, banheiro ou área molhadas, conforme o ambiente.</p>
+
+      <p class="text-gray-700 mb-4 leading-relaxed">Não economize na escolha da tinta. O investimento em produtos de qualidade garante durabilidade, beleza e proteção adequada para cada superfície. A Renovo Pinturas trabalha com as melhores marcas do mercado e oferece orientação técnica para escolher a tinta ideal para cada projeto. Entre em contato e solicite seu orçamento gratuito.</p>
+    `,
+    },
+  ];
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const canonical = `/blog/${post.slug}`;
+const ogImage = post.image;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  image: post.image,
+  datePublished: post.date,
+  author: {
+    '@type': 'Person',
+    name: post.author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: company.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${company.site}/favicon.svg`,
+    },
+  },
+};
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.excerpt}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogType="article"
+  schema={articleSchema}
+>
+  <article class="bg-white">
+    <!-- Hero image -->
+    <div class="aspect-video md:aspect-[21/9] max-h-[480px] overflow-hidden bg-gray-100">
+      <img
+        src={post.image}
+        alt={post.title}
+        width="1200"
+        height="600"
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="container py-12 md:py-16">
+      <!-- Meta -->
+      <div class="max-w-3xl mx-auto mb-8">
+        <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+          <time datetime={post.date}>{post.date}</time>
+          <span>·</span>
+          <span>{post.readTime} de leitura</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
+          {post.title}
+        </h1>
+        <p class="text-lg text-gray-500 mt-4 leading-relaxed">{post.excerpt}</p>
+      </div>
+
+      <!-- Content -->
+      <div class="max-w-3xl mx-auto prose-content" set:html={post.content}>
+      </div>
+
+      <!-- CTA -->
+      <div class="max-w-3xl mx-auto mt-16 p-8 rounded-2xl bg-gray-50 border border-gray-100 text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">Precisa de ajuda profissional?</h2>
+        <p class="text-gray-600 mb-6 max-w-lg mx-auto">
+          Solicite um orçamento gratuito com a Renovo Pinturas. Atendimento em São Paulo e região, com garantia de 5 anos.
+        </p>
+        <a
+          href={`${company.whatsappUrl}?text=Olá! Li o artigo "${post.title}" e gostaria de um orçamento.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-[#0E3A66] hover:bg-[#1B5FB0] text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Solicitar Orçamento Grátis
+        </a>
+      </div>
+
+      <!-- Back to blog -->
+      <div class="max-w-3xl mx-auto mt-10 text-center">
+        <a
+          href="/blog/"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-[#0E3A66] hover:text-[#1B5FB0] transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Voltar para o blog
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  /* Prose-like content styling using only global.css utilities + plain CSS */
+  .prose-content h2 {
+    color: #111827;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .prose-content p {
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .prose-content .text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+</style>
