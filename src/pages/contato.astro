@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { company } from '../data/company';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: company.name,
+  description: 'Renovo Pinturas - Serviços de pintura residencial, comercial e impermeabilização em São Paulo e região. Orçamento gratuito e garantia de 5 anos.',
+  url: company.site,
+  telephone: `+55 ${company.whatsapp}`,
+  email: company.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: company.addressLocality,
+    addressRegion: company.addressRegion,
+    addressCountry: company.addressCountry,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: company.latitude,
+    longitude: company.longitude,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:00',
+    closes: '20:00',
+  },
+  priceRange: company.priceRange,
+  areaServed: {
+    '@type': 'State',
+    name: 'São Paulo',
+  },
+  sameAs: [
+    'https://www.instagram.com/renovopinturas',
+    'https://www.facebook.com/renovopinturas',
+  ],
+};
+
+const contactMethods = [
+  {
+    title: 'WhatsApp',
+    value: (company.whatsapp).replace(/(\d{2})(\d{2})(\d{4,5})(\d{4})/, '($1) $2 $3-$4'),
+    href: company.whatsappUrl,
+    description: 'Atendimento rápido e imediato',
+    icon: `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>`,
+    gradient: '#25D366',
+    gradientEnd: '#20BA5C',
+  },
+  {
+    title: 'Telefone',
+    value: (company.whatsapp).replace(/(\d{2})(\d{2})(\d{4,5})(\d{4})/, '($1) $2 $3-$4'),
+    href: `tel:+55${company.whatsapp}`,
+    description: 'Atendimento de segunda a sábado',
+    icon: `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>`,
+    gradient: '#0E3A66',
+    gradientEnd: '#1B5FB0',
+  },
+  {
+    title: 'E-mail',
+    value: company.email,
+    href: `mailto:${company.email}`,
+    description: 'Resposta em até 24 horas',
+    icon: `<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>`,
+    gradient: '#F57C00',
+    gradientEnd: '#E65100',
+  },
+  {
+    title: 'Endereço',
+    value: `${company.addressLocality}, ${company.addressRegion}`,
+    href: `https://maps.google.com/?q=${company.addressLocality},${company.addressRegion},Brasil`,
+    description: 'Atendimento em toda a região',
+    icon: `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>`,
+    gradient: '#00695C',
+    gradientEnd: '#00897B',
+  },
+];
+
+const businessHours = [
+  { days: 'Segunda a Sexta', hours: '08:00 - 20:00' },
+  { days: 'Sábado', hours: '08:00 - 20:00' },
+  { days: 'Domingo', hours: 'Fechado' },
+];
+---
+
+<BaseLayout
+  title="Contato | Renovo Pinturas - Orçamento Grátis"
+  description="Entre em contato com a Renovo Pinturas para orçamento gratuito de pintura residencial, comercial e impermeabilização. WhatsApp, telefone, e-mail e atendimento presencial."
+  canonical="/contato"
+  breadcrumbItems={[
+    { name: 'Contato', href: '/contato' },
+  ]}
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #0E3A66 0%, #1B5FB0 100%);">
+    <div class="absolute inset-0 opacity-10 overflow-hidden">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#grid)"/>
+      </svg>
+    </div>
+    <div class="container py-16 md:py-20 relative">
+      <div class="max-w-3xl">
+        <h1 class="text-white font-extrabold text-3xl md:text-4xl lg:text-5xl mb-4 leading-tight">
+          Fale Conosco
+        </h1>
+        <p class="text-white/80 text-base md:text-lg mb-8 max-w-2xl leading-relaxed">
+          Solicite seu orçamento gratuito sem compromisso. Nossa equipe responde rapidamente pelo WhatsApp ou você pode nos ligar durante o horário de atendimento.
+        </p>
+        <a
+          href={`${company.whatsappUrl}?text=Olá! Gostaria de entrar em contato.`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl text-center transition-all hover:scale-105 inline-flex items-center gap-3"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="section bg-gray-50">
+    <div class="container">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+          Canais de Atendimento
+        </h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">
+          Escolha a forma mais conveniente para entrar em contato conosco.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        {contactMethods.map((method) => (
+          <a
+            href={method.href}
+            target={method.href.startsWith('http') && !method.href.startsWith('https://wa.me') ? '_blank' : undefined}
+            rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-all text-center"
+          >
+            <div
+              class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4"
+              style={`background: linear-gradient(135deg, ${method.gradient}, ${method.gradientEnd});`}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true" set:html={method.icon} />
+            </div>
+            <h3 class="font-bold text-gray-900 mb-1">{method.title}</h3>
+            <div class="text-[#0E3A66] font-semibold text-sm mb-1">{method.value}</div>
+            <div class="text-gray-400 text-xs">{method.description}</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Form and Info -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+
+        <!-- Contact Form -->
+        <div>
+          <h2 class="text-2xl font-extrabold text-gray-900 mb-6">
+            Envie sua Mensagem
+          </h2>
+          <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-200">
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nome completo</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Seu nome"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0E3A66] focus:ring-2 focus:ring-[#0E3A66]/20 outline-none transition-all text-sm"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Telefone / WhatsApp</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="(11) 99999-9999"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0E3A66] focus:ring-2 focus:ring-[#0E3A66]/20 outline-none transition-all text-sm"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">E-mail (opcional)</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="seu@email.com"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0E3A66] focus:ring-2 focus:ring-[#0E3A66]/20 outline-none transition-all text-sm"
+                />
+              </div>
+              <div>
+                <label for="service" class="block text-sm font-semibold text-gray-700 mb-1">Serviço desejado</label>
+                <select
+                  id="service"
+                  name="service"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0E3A66] focus:ring-2 focus:ring-[#0E3A66]/20 outline-none transition-all text-sm bg-white"
+                >
+                  <option value="">Selecione um serviço</option>
+                  <option value="pintura-residencial">Pintura Residencial</option>
+                  <option value="pintura-comercial">Pintura Comercial</option>
+                  <option value="impermeabilizacao">Impermeabilização</option>
+                  <option value="servicos-pedreiro">Serviços de Pedreiro</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+              <div>
+                <label for="city" class="block text-sm font-semibold text-gray-700 mb-1">Cidade</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  required
+                  placeholder="Sua cidade"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0E3A66] focus:ring-2 focus:ring-[#0E3A66]/20 outline-none transition-all text-sm"
+                />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Mensagem</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  placeholder="Descreva o que precisa..."
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0E3A66] focus:ring-2 focus:ring-[#0E3A66]/20 outline-none transition-all text-sm resize-none"
+                ></textarea>
+              </div>
+              <a
+                href={`${company.whatsappUrl}?text=Olá! Gostaria de entrar em contato.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl text-center transition-all hover:scale-105 flex items-center justify-center gap-3 text-sm"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Enviar pelo WhatsApp
+              </a>
+            </form>
+          </div>
+        </div>
+
+        <!-- Info Sidebar -->
+        <div>
+          <h2 class="text-2xl font-extrabold text-gray-900 mb-6">
+            Horário de Atendimento
+          </h2>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 mb-8">
+            <div class="space-y-4">
+              {businessHours.map((item) => (
+                <div class="flex items-center justify-between py-2 border-b border-gray-200 last:border-0">
+                  <span class="font-medium text-gray-700 text-sm">{item.days}</span>
+                  <span class={`font-semibold text-sm ${item.hours === 'Fechado' ? 'text-red-500' : 'text-[#0E3A66]'}`}>
+                    {item.hours}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-extrabold text-gray-900 mb-6">
+            Sobre o Atendimento
+          </h2>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E3A66" stroke-width="2" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>Orçamento sempre gratuito e sem compromisso</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E3A66" stroke-width="2" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>Equipe vai até o local para avaliar e tirar medidas</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E3A66" stroke-width="2" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>Resposta rápida pelo WhatsApp</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E3A66" stroke-width="2" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>Garantia de 5 anos em todos os serviços</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E3A66" stroke-width="2" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>Atendemos toda a Grande São Paulo e região</span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-gray-600">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E3A66" stroke-width="2" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span>Trabalhamos com todos os materiais inclusos</span>
+              </li>
+            </ul>
+
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <a
+                href={`${company.whatsappUrl}?text=Olá! Gostaria de entrar em contato.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full bg-[#25D366] hover:bg-[#20BA5C] text-white font-semibold px-8 py-4 rounded-xl text-center transition-all hover:scale-105 flex items-center justify-center gap-3 text-sm"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chamar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
