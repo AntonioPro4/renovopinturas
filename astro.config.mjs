@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
+  site: 'https://renovopinturas.com.br',
+  trailingSlash: 'always',
   output: 'static',
   adapter: cloudflare({
     platformProxy: {
@@ -13,7 +15,7 @@ export default defineConfig({
   }),
   build: {
     assets: '_assets',
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'never',
   },
   image: {
     service: {
