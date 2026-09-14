@@ -7,7 +7,7 @@ const posts = [
     slug: 'cores-para-pintura-residencial',
     title: 'Cores tendências para pintura residencial em 2024',
     excerpt: 'Descubra as cores que estão em alta para pintar sua casa este ano. Tons neutros, verdes naturais e azuis profundos dominam as tendências.',
-    date: '15 Jan 2024',
+    date: '15/01/2024',
     image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80',
     readTime: '5 min',
   },
@@ -15,7 +15,7 @@ const posts = [
     slug: 'como-escolher-tinta-certa',
     title: 'Como escolher a tinta certa para cada ambiente',
     excerpt: 'Nem toda tinta serve para todo ambiente. Aprenda a escolher o tipo ideal de tinta para paredes internas, externas, tetos e áreas molhadas.',
-    date: '28 Jan 2024',
+    date: '28/01/2024',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80',
     readTime: '4 min',
   },
@@ -23,7 +23,7 @@ const posts = [
     slug: 'sinais-hora-repintar-casa',
     title: '5 sinais de que é hora de repintar sua casa',
     excerpt: 'Descascados, fissuras, desbotamento... Conheça os principais sinais de que suas paredes precisam de uma nova camada de pintura.',
-    date: '10 Fev 2024',
+    date: '10/02/2024',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     readTime: '3 min',
   },
@@ -31,17 +31,34 @@ const posts = [
     slug: 'diferenca-pintura-interna-externa',
     title: 'Pintura interna vs externa: conheça as diferenças',
     excerpt: 'Você sabia que existem tintas específicas para áreas internas e externas? Entenda as diferenças e evite problemas futuros na sua obra.',
-    date: '22 Fev 2024',
+    date: '22/02/2024',
     image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80',
     readTime: '6 min',
   },
 ];
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog da Renovo Pinturas',
+  description: 'Dicas, tendências e orientações sobre pintura residencial, comercial e impermeabilização.',
+  url: `${company.site}/blog/`,
+  publisher: {
+    '@type': 'Organization',
+    name: company.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${company.site}/favicon.svg`,
+    },
+  },
+};
 ---
 
 <BaseLayout
   title="Blog de Pintura e Reforma | Renovo Pinturas"
   description="Leia dicas, tendências e orientações sobre pintura residencial, comercial e impermeabilização. Blog da Renovo Pinturas em São Paulo."
   canonical="/blog"
+  schema={blogSchema}
 >
   <section class="section bg-gray-50">
     <div class="container">

@@ -52,15 +52,50 @@ const faqs = [
   { q: 'Atendem em horários específicos?', a: 'Trabalhamos de segunda a sábado, das 8h às 18h. Para projetos comerciais, podemos combinar horários alternativos para não afetar o funcionamento do negócio.' },
   { q: 'Fazem orçamento sem compromisso?', a: 'Sim! O orçamento é sempre gratuito e sem compromisso. Nossa equipe vai até o local para avaliar, tirar medidas e apresentar a proposta detalhada.' },
 ];
+
+const servicosSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Pintura e Reforma',
+  name: 'Serviços de Pintura e Reforma da Renovo Pinturas',
+  description: 'Soluções completas em pintura residencial, comercial, impermeabilização e serviços de pedreiro em São Paulo e região.',
+  provider: {
+    '@type': 'HomeAndConstructionBusiness',
+    name: company.name,
+    telephone: `+55 ${company.whatsapp}`,
+    email: company.email,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: company.addressLocality,
+      addressRegion: company.addressRegion,
+      addressCountry: company.addressCountry,
+    },
+  },
+  areaServed: {
+    '@type': 'State',
+    name: 'São Paulo',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Serviços de Pintura',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pintura Residencial', description: 'Apartamentos, casas e sobrados com acabamento profissional.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Pintura Comercial', description: 'Escritórios, lojas, galpões e prédios comerciais.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Impermeabilização', description: 'Proteção contra infiltrações em lajes, telhados e paredes.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Serviços de Pedreiro', description: 'Reboco, alvenaria, contrapiso e reparos estruturais.' } },
+    ],
+  },
+};
 ---
 
 <BaseLayout
   title="Serviços de Pintura e Reforma em São Paulo | Renovo Pinturas"
   description="Conheça todos os serviços de pintura residencial, comercial, impermeabilização e pedreiro. Orçamento gratuito e garantia de 5 anos. Atendemos São Paulo e região."
-  canonical="/servicos"
+  canonical="/servicos/"
   breadcrumbItems={[
-    { name: 'Serviços', href: '/servicos' },
+    { name: 'Serviços', href: '/servicos/' },
   ]}
+  schema={servicosSchema}
 >
   <!-- Hero -->
   <section class="relative overflow-hidden" style="background: linear-gradient(135deg, #0E3A66 0%, #1B5FB0 100%);">

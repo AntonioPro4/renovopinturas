@@ -12,7 +12,7 @@ const schema = {
   '@type': 'CollectionPage',
   name: 'Pintura Residencial em São Paulo e Região',
   description: 'Encontre serviços de pintura residencial em mais de 35 cidades da Grande São Paulo. Orçamento gratuito e garantia de 5 anos.',
-  url: `${company.site}/pintura-residencial`,
+  url: `${company.site}/pintura-residencial/`,
 };
 
 const citiesByRegion = regions.reduce((acc, region) => {
@@ -24,7 +24,7 @@ const citiesByRegion = regions.reduce((acc, region) => {
 <BaseLayout
   title="Pintura Residencial em São Paulo e Região | Renovo Pinturas"
   description="Encontre serviços de pintura residencial em mais de 35 cidades da Grande São Paulo. Orçamento gratuito, garantia de 5 anos. Atendemos todas as regiões."
-  canonical="/pintura-residencial"
+  canonical="/pintura-residencial/"
   breadcrumbItems={[
     { name: 'Pintura Residencial', href: '/pintura-residencial' },
   ]}

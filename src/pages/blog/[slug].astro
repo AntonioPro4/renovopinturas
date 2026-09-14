@@ -8,7 +8,8 @@ export function getStaticPaths() {
       slug: 'cores-para-pintura-residencial',
       title: 'Cores tendências para pintura residencial em 2024',
       excerpt: 'Descubra as cores que estão em alta para pintar sua casa este ano. Tons neutros, verdes naturais e azuis profundos dominam as tendências.',
-      date: '15 Jan 2024',
+      date: '2024-01-15',
+    isoDate: '2024-01-15T10:00:00-03:00',
       image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80',
       readTime: '5 min',
       author: company.author,
@@ -40,7 +41,8 @@ export function getStaticPaths() {
       slug: 'como-escolher-tinta-certa',
       title: 'Como escolher a tinta certa para cada ambiente',
       excerpt: 'Nem toda tinta serve para todo ambiente. Aprenda a escolher o tipo ideal de tinta para paredes internas, externas, tetos e áreas molhadas.',
-      date: '28 Jan 2024',
+      date: '2024-01-28',
+    isoDate: '2024-01-28T10:00:00-03:00',
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80',
       readTime: '4 min',
       author: company.author,
@@ -82,7 +84,8 @@ export function getStaticPaths() {
       slug: 'sinais-hora-repintar-casa',
       title: '5 sinais de que é hora de repintar sua casa',
       excerpt: 'Descascados, fissuras, desbotamento... Conheça os principais sinais de que suas paredes precisam de uma nova camada de pintura.',
-      date: '10 Fev 2024',
+      date: '2024-02-10',
+    isoDate: '2024-02-10T10:00:00-03:00',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
       readTime: '3 min',
       author: company.author,
@@ -114,7 +117,8 @@ export function getStaticPaths() {
       slug: 'diferenca-pintura-interna-externa',
       title: 'Pintura interna vs externa: conheça as diferenças',
       excerpt: 'Você sabia que existem tintas específicas para áreas internas e externas? Entenda as diferenças e evite problemas futuros na sua obra.',
-      date: '22 Fev 2024',
+      date: '2024-02-22',
+    isoDate: '2024-02-22T10:00:00-03:00',
       image: 'https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80',
       readTime: '6 min',
       author: company.author,
@@ -165,7 +169,12 @@ const articleSchema = {
   headline: post.title,
   description: post.excerpt,
   image: post.image,
-  datePublished: post.date,
+  datePublished: post.isoDate,
+  dateModified: post.isoDate,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${company.site}/blog/${post.slug}`,
+  },
   author: {
     '@type': 'Person',
     name: post.author,
@@ -206,7 +215,7 @@ const articleSchema = {
       <!-- Meta -->
       <div class="max-w-3xl mx-auto mb-8">
         <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
-          <time datetime={post.date}>{post.date}</time>
+          <time datetime={post.isoDate}>{post.date.replace(/-/g, '/')}</time>
           <span>·</span>
           <span>{post.readTime} de leitura</span>
         </div>
